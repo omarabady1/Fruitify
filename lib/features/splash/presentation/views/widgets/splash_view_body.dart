@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fruitify/features/on_boarding/presentaion/views/on_boarding_view.dart';
 
 import '../../../../../generated/assets.dart';
 
@@ -41,14 +42,14 @@ class _SplashViewBodyState extends State<SplashViewBody>
       ),
     );
 
-
-    logoAnim= Tween<double>(begin: 0.0, end: 1.0).animate(
+    logoAnim = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
         parent: _controller,
         curve: const Interval(0.5, 0.9, curve: Curves.easeOutBack),
       ),
     );
 
+    executeNavigation();
 
     _controller.forward();
   }
@@ -79,7 +80,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
               ),
 
               Transform.scale(
-                scale:logoAnim.value,
+                scale: logoAnim.value,
                 child: SizedBox(
                   height: MediaQuery.sizeOf(context).height * 0.23,
                   child: Image.asset(Assets.imagesFruitifyLogo),
@@ -98,5 +99,13 @@ class _SplashViewBodyState extends State<SplashViewBody>
         );
       },
     );
+  }
+
+  void executeNavigation() {
+    Future.delayed(const Duration(milliseconds: 2000), () {
+      if (mounted) {
+        Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
+      }
+    });
   }
 }
