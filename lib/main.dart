@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fruitify/core/helper_functions/on_generate_routs.dart';
 import 'package:fruitify/features/splash/presentation/views/splash_view.dart';
 
@@ -12,6 +13,13 @@ class Fruitify extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      locale: const Locale('ar'), // default Arabic (optional)
+      supportedLocales: const [Locale('en'), Locale('ar')],
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
       initialRoute: SplashView.routeName,
