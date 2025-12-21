@@ -1,5 +1,6 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:fruitify/core/utilies/custom_button.dart';
 import 'package:fruitify/features/on_boarding/presentation/views/widgets/on_boarding_page_view.dart';
 
 class OnBoardingViewBody extends StatelessWidget {
@@ -19,6 +20,7 @@ class OnBoardingViewBody extends StatelessWidget {
             size: Size(9, 9),
           ),
         ),
+        CustomButton(label: 'ابدأ الآن', onPressed: (){} ),
       ],
     );
   }
