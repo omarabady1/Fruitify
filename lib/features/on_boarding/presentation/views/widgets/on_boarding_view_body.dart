@@ -33,10 +33,21 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
 
   @override
   Widget build(BuildContext context) {
+    bool isAnimating = false;
     return Column(
       children: [
         Expanded(child: OnBoardingPageView(pageController)),
         DotsIndicator(
+          onTap: (index) async{
+            if (isAnimating) return;
+            isAnimating = true;
+            await pageController.animateToPage(
+              index,
+              duration: Duration(milliseconds: 300),
+              curve: Curves.easeIn,
+            );
+            isAnimating =false;
+          },
           dotsCount: 2,
           animate: true,
           decorator: DotsDecorator(
