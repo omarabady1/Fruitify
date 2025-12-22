@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruitify/constants.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:fruitify/core/utils/app_text_styles.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({super.key, required this.label, required this.onPressed});
@@ -24,11 +24,7 @@ class CustomButton extends StatelessWidget {
           child: Center(
             child: Text(
               label,
-              style: GoogleFonts.cairo(
-                color: Colors.white,
-                fontSize: 16,
-                fontWeight: FontWeight.w700,
-              ),
+              style: AppTextStyles.bold16.copyWith(color: Colors.white),
             ),
           ),
         ),
