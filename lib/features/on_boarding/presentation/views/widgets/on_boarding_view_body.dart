@@ -5,6 +5,8 @@ import 'package:fruitify/core/utils/custom_button.dart';
 import 'package:fruitify/features/authentication/presentation/views/login_view.dart';
 import 'package:fruitify/features/on_boarding/presentation/views/widgets/on_boarding_page_view.dart';
 
+import '../../../../../core/services/shared_preferences_singleton.dart';
+
 class OnBoardingViewBody extends StatefulWidget {
   const OnBoardingViewBody({super.key});
 
@@ -39,7 +41,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
       children: [
         Expanded(child: OnBoardingPageView(pageController)),
         DotsIndicator(
-          onTap: (index) async{
+          onTap: (index) async {
             if (isAnimating) return;
             isAnimating = true;
             await pageController.animateToPage(
@@ -47,7 +49,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
               duration: Duration(milliseconds: 300),
               curve: Curves.easeIn,
             );
-            isAnimating =false;
+            isAnimating = false;
           },
           dotsCount: 2,
           animate: true,
@@ -65,9 +67,13 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
           maintainSize: true,
           maintainAnimation: true,
           maintainState: true,
-          child: CustomButton(label: 'ابدأ الآن', onPressed: () {
-            Navigator.pushReplacementNamed(context, LoginView.routeName);
-          }),
+          child: CustomButton(
+            label: 'ابدأ الآن',
+            onPressed: () {
+              Prefs.setBool(isOnBoardingSeen, true);
+              Navigator.pushReplacementNamed(context, LoginView.routeName);
+            },
+          ),
         ),
       ],
     );

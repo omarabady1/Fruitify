@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fruitify/constants.dart';
+import 'package:fruitify/core/services/shared_preferences_singleton.dart';
 import 'package:fruitify/core/utils/app_text_styles.dart';
 
 import '../../../../authentication/presentation/views/login_view.dart';
@@ -39,7 +41,14 @@ class PageViewItem extends StatelessWidget {
                     visible: isVisible,
                     child: TextButton(
                       onPressed: () {
-                        Navigator.pushReplacementNamed(context, LoginView.routeName);
+                        Prefs.setBool(
+                          isOnBoardingSeen,
+                          true,
+                        );
+                        Navigator.pushReplacementNamed(
+                          context,
+                          LoginView.routeName,
+                        );
                       },
                       child: Text(
                         'تخطٍ',

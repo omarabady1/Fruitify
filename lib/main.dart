@@ -5,7 +5,8 @@ import 'package:fruitify/features/splash/presentation/views/splash_view.dart';
 import 'core/services/shared_preferences_singleton.dart';
 
 void main() async{
-  await SharedPreferencesSingleton.init();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Prefs.init();
   runApp(const Fruitify());
 }
 
