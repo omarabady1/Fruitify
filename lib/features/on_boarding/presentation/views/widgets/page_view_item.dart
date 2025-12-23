@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruitify/core/utils/app_text_styles.dart';
 
+import '../../../../authentication/presentation/views/login_view.dart';
+
 class PageViewItem extends StatelessWidget {
   const PageViewItem({
     super.key,
@@ -33,18 +35,14 @@ class PageViewItem extends StatelessWidget {
                 alignment: Alignment.topRight,
                 child: Padding(
                   padding: EdgeInsetsGeometry.only(top: 20, right: 10),
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Visibility(
-                      visible: isVisible,
+                  child: Visibility(
+                    visible: isVisible,
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.pushReplacementNamed(context, LoginView.routeName);
+                      },
                       child: Text(
                         'تخطٍ',
-                        // style: GoogleFonts.cairo(
-                        //   color: const Color(0xFF949D9E),
-                        //   fontSize: 13,
-                        //   fontWeight: FontWeight.w600,
-                        //   height: 1.70,
-                        // ),
                         style: AppTextStyles.semiBold13.copyWith(
                           color: const Color(0xFF949D9E),
                           height: 1.70,

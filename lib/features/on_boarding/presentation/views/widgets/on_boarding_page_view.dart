@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:fruitify/features/splash/presentation/views/widgets/page_view_item.dart';
+import 'package:fruitify/features/on_boarding/presentation/views/widgets/page_view_item.dart';
 import 'package:fruitify/generated/assets.dart';
 
 class OnBoardingPageView extends StatelessWidget {
