@@ -1,0 +1,46 @@
+import 'package:flutter/material.dart';
+import 'package:fruitify/core/utils/app_text_styles.dart';
+import 'package:fruitify/core/widgets/custom_button.dart';
+import 'package:fruitify/core/widgets/custom_text_field.dart';
+
+import '../../../../splash/presentation/views/widgets/dont_have_an_account.dart';
+
+class LoginViewBody extends StatelessWidget {
+  const LoginViewBody({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            SizedBox(height: 24),
+            CustomTextField(
+              hint: 'البريد الإلكتروني',
+              inputType: TextInputType.emailAddress,
+            ),
+            SizedBox(height: 16),
+            CustomTextField(hint: 'كلمة المرور', isPassword: true),
+            SizedBox(height: 16),
+            TextButton(
+              onPressed: () {},
+              child: Text(
+                'نسيت كلمة المرور؟',
+                style: AppTextStyles.semiBold13.copyWith(
+                  color: const Color(0xFF2D9F5D),
+                ),
+              ),
+            ),
+            SizedBox(height: 33),
+            CustomButton(label: 'تسجيل دخول', onPressed: () {}),
+            SizedBox(height: 33),
+            DontHaveAnAccountWidget(),
+            SizedBox(height: 33),
+          ],
+        ),
+      ),
+    );
+  }
+}

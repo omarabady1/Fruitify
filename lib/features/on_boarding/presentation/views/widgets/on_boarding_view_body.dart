@@ -1,7 +1,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:fruitify/constants.dart';
-import 'package:fruitify/core/utils/custom_button.dart';
+import 'package:fruitify/core/widgets/custom_button.dart';
 import 'package:fruitify/features/authentication/presentation/views/login_view.dart';
 import 'package:fruitify/features/on_boarding/presentation/views/widgets/on_boarding_page_view.dart';
 
@@ -67,12 +67,15 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
           maintainSize: true,
           maintainAnimation: true,
           maintainState: true,
-          child: CustomButton(
-            label: 'ابدأ الآن',
-            onPressed: () {
-              Prefs.setBool(isOnBoardingSeen, true);
-              Navigator.pushReplacementNamed(context, LoginView.routeName);
-            },
+          child: Padding(
+            padding: const EdgeInsets.only(right: 16, left: 16, bottom: 43, top: 29),
+            child: CustomButton(
+              label: 'ابدأ الآن',
+              onPressed: () {
+                Prefs.setBool(isOnBoardingSeen, true);
+                Navigator.pushReplacementNamed(context, LoginView.routeName);
+              },
+            ),
           ),
         ),
       ],
