@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:fruitify/core/utils/app_text_styles.dart';
 import 'package:fruitify/core/widgets/custom_button.dart';
 import 'package:fruitify/core/widgets/custom_text_field.dart';
+import 'package:fruitify/features/authentication/presentation/views/widgets/social_login_button.dart';
+import 'package:fruitify/generated/assets.dart';
 
-import '../../../../splash/presentation/views/widgets/dont_have_an_account.dart';
+import 'dont_have_an_account.dart';
+import 'or_divider.dart';
 
 class LoginViewBody extends StatelessWidget {
   const LoginViewBody({super.key});
@@ -38,6 +41,26 @@ class LoginViewBody extends StatelessWidget {
             SizedBox(height: 33),
             DontHaveAnAccountWidget(),
             SizedBox(height: 33),
+            OrDivider(),
+            SizedBox(height: 16),
+            SocialSignUpItem(
+              label: 'تسجيل بواسطة جوجل',
+              icon: Assets.imagesGoogleIcon,
+              onTap: () {},
+            ),
+            SizedBox(height: 16),
+            SocialSignUpItem(
+              label: 'تسجيل بواسطة أبل',
+              icon: Assets.imagesAppleIcon,
+              onTap: () {},
+            ),
+            SizedBox(height: 16),
+            SocialSignUpItem(
+              label: 'تسجيل بواسطة فيسبوك',
+              icon: Assets.imagesFacebookIcon,
+              onTap: () {},
+            ),
+            SizedBox(height: 16),
           ],
         ),
       ),
