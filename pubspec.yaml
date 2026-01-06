@@ -41,6 +41,8 @@ dependencies:
   intl: ^0.20.2
   dots_indicator: ^4.0.1
   shared_preferences: ^2.5.4
+  firebase_core: ^4.3.0
+  flutter_dotenv: ^6.0.0
 
 dev_dependencies:
   flutter_test:
@@ -100,6 +102,7 @@ flutter:
     - assets/
     - assets/images/
     - lib/features/authentication/presentation/views/widgets/
+    - .env
 
 flutter_launcher_icons:
   android: "launcher_icon"

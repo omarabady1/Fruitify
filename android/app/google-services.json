@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "124211341742",
+    "project_id": "fruitify-c3b7c",
+    "storage_bucket": "fruitify-c3b7c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:124211341742:android:bccbb0e5f16acd26d3c03f",
+        "android_client_info": {
+          "package_name": "com.example.fruitify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBaPQ_5A82zQNXpXJ1Gr_MVOK-9dSmaFg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
