@@ -3,6 +3,7 @@ import 'package:fruitify/features/on_boarding/presentation/views/on_boarding_vie
 import 'package:fruitify/features/splash/presentation/views/splash_view.dart';
 
 import '../../features/authentication/presentation/views/login_view.dart';
+import '../../features/authentication/presentation/views/sign_up_view.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -12,6 +13,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const OnBoardingView());
     case LoginView.routeName:
       return MaterialPageRoute(builder: (context) => const LoginView());
+    case SignUpView.routeName:
+      return MaterialPageRoute(builder: (context) => const SignUpView());
 
     default:
       return MaterialPageRoute(builder: (context) => Container());
