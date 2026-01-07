@@ -3,6 +3,7 @@ class Assets {
   Assets._();
 
   static const String entitiesUserEntity = 'lib/features/authentication/domain/entities/user_entity.dart';
+  static const String errorsExceptions = 'lib/core/errors/exceptions.dart';
   static const String errorsFailures = 'lib/core/errors/failures.dart';
   static const String fruitify = '.env';
   static const String generatedAssets = 'lib/generated/assets.dart';
@@ -24,6 +25,8 @@ class Assets {
   static const String libFirebaseOptions = 'lib/firebase_options.dart';
   static const String libMain = 'lib/main.dart';
   static const String reposAuthRepo = 'lib/features/authentication/domain/repos/auth_repo.dart';
+  static const String reposAuthRepoImplementation = 'lib/features/authentication/data/repos/auth_repo_implementation.dart';
+  static const String servicesFirebaseAuthService = 'lib/core/services/firebase_auth_service.dart';
   static const String servicesSharedPreferencesSingleton = 'lib/core/services/shared_preferences_singleton.dart';
   static const String utilsAppTextStyles = 'lib/core/utils/app_text_styles.dart';
   static const String viewsLoginView = 'lib/features/authentication/presentation/views/login_view.dart';
