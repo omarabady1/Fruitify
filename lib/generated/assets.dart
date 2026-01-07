@@ -24,6 +24,7 @@ class Assets {
   static const String libConstants = 'lib/constants.dart';
   static const String libFirebaseOptions = 'lib/firebase_options.dart';
   static const String libMain = 'lib/main.dart';
+  static const String modelsUserModel = 'lib/features/authentication/data/models/user_model.dart';
   static const String reposAuthRepo = 'lib/features/authentication/domain/repos/auth_repo.dart';
   static const String reposAuthRepoImplementation = 'lib/features/authentication/data/repos/auth_repo_implementation.dart';
   static const String servicesFirebaseAuthService = 'lib/core/services/firebase_auth_service.dart';
