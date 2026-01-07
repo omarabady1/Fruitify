@@ -8,6 +8,6 @@ final locator = GetIt.instance;
 void setupServiceLocator() {
   locator.registerSingleton<FirebaseAuthService>(FirebaseAuthService());
   locator.registerSingleton<AuthRepo>(
-    AuthRepoImplementation(locator.get<FirebaseAuthService>()),
+    AuthRepoImplementation(locator<FirebaseAuthService>()),
   );
 }

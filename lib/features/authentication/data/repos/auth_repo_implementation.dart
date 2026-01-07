@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fruitify/core/errors/exceptions.dart';
 import 'package:fruitify/core/errors/failures.dart';
 import 'package:fruitify/features/authentication/data/models/user_model.dart';
@@ -16,16 +17,17 @@ class AuthRepoImplementation implements AuthRepo {
     String password,
     String name,
   ) async {
-    var user = await firebaseAuthService.createUserWithEmailAndPassword(
-      emailAddress: email,
-      password: password,
-    );
+    User? user;
     try {
+      user = await firebaseAuthService.createUserWithEmailAndPassword(
+        emailAddress: email,
+        password: password,
+      );
       return right(UserModel.fromFirebaseUser(user));
     } on CustomException catch (e) {
       return left(ServerFailure(e.message));
     } catch (e) {
-      return left(ServerFailure('Unknown error occurred'));
+      return left(ServerFailure('حدث خطأ ما، برجاء المحاولة لاحقًا'));
     }
   }
 }
