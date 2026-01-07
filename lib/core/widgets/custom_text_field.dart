@@ -5,12 +5,14 @@ class CustomTextField extends StatefulWidget {
   const CustomTextField({
     super.key,
     required this.hint,
+    required this.onSaved,
     this.isPassword = false,
     this.inputType = TextInputType.text,
   });
   final String hint;
   final bool isPassword;
   final TextInputType inputType;
+  final void Function(String?)? onSaved;
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
 }
@@ -20,6 +22,14 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onSaved: widget.onSaved,
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'هذا الحقل مطلوب';
+        } else {
+          return null;
+        }
+      },
       cursorColor: Colors.black45,
       style: AppTextStyles.semiBold16,
       keyboardType: widget.inputType,

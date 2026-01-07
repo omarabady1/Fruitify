@@ -23,9 +23,14 @@ class LoginViewBody extends StatelessWidget {
             CustomTextField(
               hint: 'البريد الإلكتروني',
               inputType: TextInputType.emailAddress,
+              onSaved: (value) {},
             ),
             SizedBox(height: 16),
-            CustomTextField(hint: 'كلمة المرور', isPassword: true),
+            CustomTextField(
+              hint: 'كلمة المرور',
+              isPassword: true,
+              onSaved: (value) {},
+            ),
             SizedBox(height: 16),
             TextButton(
               onPressed: () {},
