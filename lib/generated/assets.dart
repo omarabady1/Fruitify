@@ -6,6 +6,7 @@ class Assets {
   static const String errorsExceptions = 'lib/core/errors/exceptions.dart';
   static const String errorsFailures = 'lib/core/errors/failures.dart';
   static const String fruitify = '.env';
+  static const String functionsSetupServiceLocator = 'lib/core/functions/setup_service_locator.dart';
   static const String generatedAssets = 'lib/generated/assets.dart';
   static const String helperFunctionsOnGenerateRouts = 'lib/core/helper_functions/on_generate_routs.dart';
   static const String imagesAppleIcon = 'assets/images/apple_icon.svg';
@@ -29,6 +30,8 @@ class Assets {
   static const String reposAuthRepoImplementation = 'lib/features/authentication/data/repos/auth_repo_implementation.dart';
   static const String servicesFirebaseAuthService = 'lib/core/services/firebase_auth_service.dart';
   static const String servicesSharedPreferencesSingleton = 'lib/core/services/shared_preferences_singleton.dart';
+  static const String signUpCubitSignUpCubit = 'lib/features/authentication/presentation/cubits/sign_up_cubit/sign_up_cubit.dart';
+  static const String signUpCubitSignUpState = 'lib/features/authentication/presentation/cubits/sign_up_cubit/sign_up_state.dart';
   static const String utilsAppTextStyles = 'lib/core/utils/app_text_styles.dart';
   static const String viewsLoginView = 'lib/features/authentication/presentation/views/login_view.dart';
   static const String viewsOnBoardingView = 'lib/features/on_boarding/presentation/views/on_boarding_view.dart';
