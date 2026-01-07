@@ -2,6 +2,9 @@
 class Assets {
   Assets._();
 
+  static const String entitiesUserEntity = 'lib/features/authentication/domain/entities/user_entity.dart';
+  static const String errorsFailures = 'lib/core/errors/failures.dart';
+  static const String fruitify = '.env';
   static const String generatedAssets = 'lib/generated/assets.dart';
   static const String helperFunctionsOnGenerateRouts = 'lib/core/helper_functions/on_generate_routs.dart';
   static const String imagesAppleIcon = 'assets/images/apple_icon.svg';
@@ -18,7 +21,9 @@ class Assets {
   static const String imagesSplashBottomCircles = 'assets/images/splash_bottom_circles.svg';
   static const String imagesSplashTopPlant = 'assets/images/splash_top_plant.svg';
   static const String libConstants = 'lib/constants.dart';
+  static const String libFirebaseOptions = 'lib/firebase_options.dart';
   static const String libMain = 'lib/main.dart';
+  static const String reposAuthRepo = 'lib/features/authentication/domain/repos/auth_repo.dart';
   static const String servicesSharedPreferencesSingleton = 'lib/core/services/shared_preferences_singleton.dart';
   static const String utilsAppTextStyles = 'lib/core/utils/app_text_styles.dart';
   static const String viewsLoginView = 'lib/features/authentication/presentation/views/login_view.dart';
