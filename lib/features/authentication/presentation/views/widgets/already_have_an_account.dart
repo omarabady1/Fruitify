@@ -17,6 +17,14 @@ class AlreadyHaveAnAccount extends StatelessWidget {
           ),
         ),
         TextButton(
+          style: ButtonStyle(
+            overlayColor: WidgetStateProperty.resolveWith<Color?>((states) {
+              if (states.contains(WidgetState.pressed)) {
+                return primaryColor.withValues(alpha: 0.1); // splash color
+              }
+              return null;
+            }),
+          ),
           onPressed: () {
             Navigator.pop(context);
           },

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruitify/core/utils/app_text_styles.dart';
 
+import '../../../../../constants.dart';
+
 class SocialSignUpItem extends StatelessWidget {
   const SocialSignUpItem({
     super.key,
@@ -19,8 +21,8 @@ class SocialSignUpItem extends StatelessWidget {
       borderRadius: BorderRadius.circular(16),
       child: InkWell(
         borderRadius: BorderRadius.circular(16),
-        splashColor: const Color(0xFF6A976A).withValues(alpha: 0.16),
-        highlightColor: const Color(0xFF6A976A).withValues(alpha: 0.13),
+        splashColor: primaryColor.withValues(alpha: 0.1),
+        highlightColor: primaryColor.withValues(alpha: 0.1),
         onTap: onTap,
         child: Ink(
           height: 59,

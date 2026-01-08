@@ -28,14 +28,14 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
               CustomTextField(
                 hint: 'الاسم بالكامل',
                 onSaved: (value) {
                   name = value!;
                 },
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               CustomTextField(
                 hint: 'البريد الإلكتروني',
                 inputType: TextInputType.emailAddress,
@@ -43,7 +43,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                   email = value!;
                 },
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               CustomTextField(
                 hint: 'كلمة المرور',
                 isPassword: true,
@@ -51,11 +51,11 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                   password = value!;
                 },
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
 
               TermsAndConditions(),
 
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               CustomButton(
                 label: 'إنشاء حساب جديد',
                 onPressed: () {
@@ -74,7 +74,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                   }
                 },
               ),
-              SizedBox(height: 26),
+              const SizedBox(height: 26),
               AlreadyHaveAnAccount(),
             ],
           ),

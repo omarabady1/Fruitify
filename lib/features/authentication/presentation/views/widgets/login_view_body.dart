@@ -5,6 +5,7 @@ import 'package:fruitify/core/widgets/custom_text_field.dart';
 import 'package:fruitify/features/authentication/presentation/views/widgets/social_login_button.dart';
 import 'package:fruitify/generated/assets.dart';
 
+import '../../../../../constants.dart';
 import 'dont_have_an_account.dart';
 import 'or_divider.dart';
 
@@ -19,20 +20,28 @@ class LoginViewBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             CustomTextField(
               hint: 'البريد الإلكتروني',
               inputType: TextInputType.emailAddress,
               onSaved: (value) {},
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             CustomTextField(
               hint: 'كلمة المرور',
               isPassword: true,
               onSaved: (value) {},
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 8),
             TextButton(
+              style: ButtonStyle(
+                overlayColor: WidgetStateProperty.resolveWith<Color?>((states) {
+                  if (states.contains(WidgetState.pressed)) {
+                    return primaryColor.withValues(alpha: 0.1); // splash color
+                  }
+                  return null;
+                }),
+              ),
               onPressed: () {},
               child: Text(
                 'نسيت كلمة المرور؟',
@@ -41,31 +50,31 @@ class LoginViewBody extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 33),
+            const SizedBox(height: 18),
             CustomButton(label: 'تسجيل دخول', onPressed: () {}),
-            SizedBox(height: 33),
+            const SizedBox(height: 24),
             DontHaveAnAccountWidget(),
-            SizedBox(height: 33),
+            const SizedBox(height: 18),
             OrDivider(),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             SocialSignUpItem(
               label: 'تسجيل بواسطة جوجل',
               icon: Assets.imagesGoogleIcon,
               onTap: () {},
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             SocialSignUpItem(
               label: 'تسجيل بواسطة أبل',
               icon: Assets.imagesAppleIcon,
               onTap: () {},
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             SocialSignUpItem(
               label: 'تسجيل بواسطة فيسبوك',
               icon: Assets.imagesFacebookIcon,
               onTap: () {},
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
           ],
         ),
       ),

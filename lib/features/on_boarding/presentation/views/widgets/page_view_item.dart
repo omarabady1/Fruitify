@@ -36,15 +36,25 @@ class PageViewItem extends StatelessWidget {
               Align(
                 alignment: Alignment.topRight,
                 child: Padding(
-                  padding: EdgeInsetsGeometry.only(top: 20, right: 10),
+                  padding: const EdgeInsets.only(top: 20, right: 10),
                   child: Visibility(
                     visible: isVisible,
                     child: TextButton(
+                      style: ButtonStyle(
+                        overlayColor: WidgetStateProperty.resolveWith<Color?>((
+                          states,
+                        ) {
+                          if (states.contains(WidgetState.pressed)) {
+                            return primaryColor.withValues(
+                              alpha: 0.1,
+                            ); // splash color
+                          }
+                          return null;
+                        }),
+                      ),
+
                       onPressed: () {
-                        Prefs.setBool(
-                          isOnBoardingSeen,
-                          true,
-                        );
+                        Prefs.setBool(isOnBoardingSeen, true);
                         Navigator.pushReplacementNamed(
                           context,
                           LoginView.routeName,
@@ -64,9 +74,9 @@ class PageViewItem extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(height: 64),
+        const SizedBox(height: 64),
         title,
-        SizedBox(height: 24),
+        const SizedBox(height: 24),
         SizedBox(
           width: 301,
           child: Text(

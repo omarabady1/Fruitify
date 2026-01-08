@@ -8,6 +8,7 @@ AppBar buildAppBar(
   bool showLeading = true,
 }) {
   return AppBar(
+    scrolledUnderElevation: 0,
     title: Text(title, style: AppTextStyles.bold19),
     centerTitle: true,
     leading: showLeading
@@ -15,7 +16,7 @@ AppBar buildAppBar(
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: Icon(Icons.arrow_back_ios),
+            icon: const Icon(Icons.arrow_back_ios),
           )
         : null,
   );

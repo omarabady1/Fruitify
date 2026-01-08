@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruitify/constants.dart';
 import 'package:fruitify/core/utils/app_text_styles.dart';
 
 class CustomTextField extends StatefulWidget {
@@ -40,6 +41,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           horizontal: 20,
         ),
         fillColor: const Color(0xFFF9FAFA),
+        errorStyle: AppTextStyles.semiBold13.copyWith(color: errorColor),
         filled: true,
         hintText: widget.hint,
         hintStyle: AppTextStyles.bold13.copyWith(
@@ -51,6 +53,14 @@ class _CustomTextFieldState extends State<CustomTextField> {
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(color: Color(0xFFE6E9E9), width: 1),
+          borderRadius: BorderRadius.circular(4),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: errorColor, width: 1),
+          borderRadius: BorderRadius.circular(4),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: errorColor, width: 2),
           borderRadius: BorderRadius.circular(4),
         ),
         suffixIcon: widget.isPassword

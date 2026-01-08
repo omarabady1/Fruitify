@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruitify/constants.dart';
-import 'package:fruitify/core/utils/app_text_styles.dart';
 import 'package:fruitify/features/authentication/presentation/views/widgets/sign_up_view_body.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import '../../../../../core/widgets/show_custom_snack_bar.dart';
 import '../../cubits/sign_up_cubit/sign_up_cubit.dart';
 
 class SignUpViewBodyBlocConsumer extends StatelessWidget {
@@ -15,18 +15,7 @@ class SignUpViewBodyBlocConsumer extends StatelessWidget {
       listener: (context, state) {
         if (state is SignUpSuccess) {
         } else if (state is SignUpFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Row(
-                children: [
-                  Icon(Icons.error_outline, color: Colors.white,),
-                  SizedBox(width: 8,),
-                  Text(state.errMessage, style: AppTextStyles.semiBold16),
-                ],
-              ),
-              backgroundColor: const Color(0xFF2E0303),
-            ),
-          );
+          showSnackBar(context, state.errMessage);
         }
       },
       builder: (context, state) {
