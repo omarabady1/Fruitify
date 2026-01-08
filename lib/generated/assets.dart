@@ -49,6 +49,7 @@ class Assets {
   static const String widgetsOrDivider = 'lib/features/authentication/presentation/views/widgets/or_divider.dart';
   static const String widgetsPageViewItem = 'lib/features/on_boarding/presentation/views/widgets/page_view_item.dart';
   static const String widgetsShowCustomSnackBar = 'lib/core/widgets/show_custom_snack_bar.dart';
+  static const String widgetsShowErrorSnackBar = 'lib/core/widgets/show_error_snack_bar.dart';
   static const String widgetsSignUpViewBody = 'lib/features/authentication/presentation/views/widgets/sign_up_view_body.dart';
   static const String widgetsSignUpViewBodyBlocConsumer = 'lib/features/authentication/presentation/views/widgets/sign_up_view_body_bloc_consumer.dart';
   static const String widgetsSocialLoginButton = 'lib/features/authentication/presentation/views/widgets/social_login_button.dart';

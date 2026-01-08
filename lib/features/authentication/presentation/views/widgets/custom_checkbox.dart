@@ -3,38 +3,35 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruitify/constants.dart';
 import 'package:fruitify/generated/assets.dart';
 
-class CustomCheckbox extends StatefulWidget {
+class CustomCheckbox extends StatelessWidget {
   const CustomCheckbox({
     super.key,
     required this.onChecked,
+    required this.isChecked,
+    this.isError = false,
   });
   final ValueChanged<bool> onChecked;
-
-  @override
-  State<CustomCheckbox> createState() => _CustomCheckboxState();
-}
-
-class _CustomCheckboxState extends State<CustomCheckbox> {
-  bool isChecked = false;
+  final bool isChecked;
+  final bool isError;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        setState(() {
-          isChecked = !isChecked;
-          widget.onChecked(isChecked);
-        });
+        onChecked(!isChecked);
       },
       child: AnimatedContainer(
-        duration: Duration(milliseconds: 200),
+        duration: const Duration(milliseconds: 200),
         width: 24,
         height: 24,
-        padding: EdgeInsets.all(4),
+        padding: const EdgeInsets.all(4),
         clipBehavior: Clip.antiAlias,
         decoration: ShapeDecoration(
           color: isChecked ? primaryColor : Colors.white,
           shape: RoundedRectangleBorder(
-            side: BorderSide(width: 1.50, color: const Color(0xFFDCDEDE)),
+            side: BorderSide(
+              width: 1.50,
+              color: isError ? errorColor : const Color(0xFFDCDEDE),
+            ),
             borderRadius: BorderRadius.circular(8),
           ),
         ),

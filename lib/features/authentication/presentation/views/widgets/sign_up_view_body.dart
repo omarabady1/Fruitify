@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruitify/core/widgets/show_error_snack_bar.dart';
 import 'package:fruitify/features/authentication/presentation/cubits/sign_up_cubit/sign_up_cubit.dart';
 import 'package:fruitify/features/authentication/presentation/views/widgets/already_have_an_account.dart';
 import 'package:fruitify/features/authentication/presentation/views/widgets/terms_and_condition.dart';
@@ -17,8 +18,11 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
   final GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
   late String name, email, password;
+  bool isTermsAccepted = false;
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<FormFieldState<bool>> termsKey =
+        GlobalKey<FormFieldState<bool>>();
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -53,14 +57,21 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
               ),
               const SizedBox(height: 16),
 
-              TermsAndConditions(),
+              TermsAndConditions(
+                isChecked: isTermsAccepted,
+                termsKey: termsKey,
+                onChecked: (value) {
+                  isTermsAccepted = value;
+                  setState(() {});
+                },
+              ),
 
               const SizedBox(height: 30),
               CustomButton(
                 label: 'إنشاء حساب جديد',
                 onPressed: () {
                   FocusScope.of(context).unfocus();
-                  if (formKey.currentState!.validate()) {
+                  if (formKey.currentState!.validate() && isTermsAccepted) {
                     formKey.currentState!.save();
                     context.read<SignUpCubit>().createUserWithEmailAndPassword(
                       email,
@@ -68,6 +79,9 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                       name,
                     );
                   } else {
+                    if (!termsKey.currentState!.validate()) {
+                      showErrorSnackBar(context, 'يجب الموافقة على الشروط والأحكام');
+                    }
                     setState(() {
                       autoValidateMode = AutovalidateMode.always;
                     });
