@@ -2,58 +2,24 @@
 class Assets {
   Assets._();
 
-  static const String entitiesUserEntity = 'lib/features/authentication/domain/entities/user_entity.dart';
-  static const String errorsExceptions = 'lib/core/errors/exceptions.dart';
-  static const String errorsFailures = 'lib/core/errors/failures.dart';
   static const String fruitify = '.env';
-  static const String functionsSetupServiceLocator = 'lib/core/functions/setup_service_locator.dart';
-  static const String generatedAssets = 'lib/generated/assets.dart';
-  static const String helperFunctionsOnGenerateRouts = 'lib/core/helper_functions/on_generate_routs.dart';
   static const String imagesAppleIcon = 'assets/images/apple_icon.svg';
   static const String imagesCheck = 'assets/images/check.svg';
   static const String imagesFacebookIcon = 'assets/images/facebook_icon.svg';
   static const String imagesFruitBasket1 = 'assets/images/fruit_basket1.svg';
   static const String imagesFruitifyLogo = 'assets/images/fruitify_logo.png';
   static const String imagesGoogleIcon = 'assets/images/google_icon.svg';
-  static const String imagesPageViewItem1BackgroundImage = 'assets/images/page_view_item1_background_image.svg';
-  static const String imagesPageViewItem1Title = 'assets/images/page_view_item_1_title.svg';
-  static const String imagesPageViewItem2BackgroundImage = 'assets/images/page_view_item2_background_image.svg';
-  static const String imagesPageViewItem2Title = 'assets/images/page_view_item_2_title.svg';
+  static const String imagesPageViewItem1BackgroundImage =
+      'assets/images/page_view_item1_background_image.svg';
+  static const String imagesPageViewItem1Title =
+      'assets/images/page_view_item_1_title.svg';
+  static const String imagesPageViewItem2BackgroundImage =
+      'assets/images/page_view_item2_background_image.svg';
+  static const String imagesPageViewItem2Title =
+      'assets/images/page_view_item_2_title.svg';
   static const String imagesPineapple = 'assets/images/pineapple.svg';
-  static const String imagesSplashBottomCircles = 'assets/images/splash_bottom_circles.svg';
-  static const String imagesSplashTopPlant = 'assets/images/splash_top_plant.svg';
-  static const String libConstants = 'lib/constants.dart';
-  static const String libFirebaseOptions = 'lib/firebase_options.dart';
-  static const String libMain = 'lib/main.dart';
-  static const String modelsUserModel = 'lib/features/authentication/data/models/user_model.dart';
-  static const String reposAuthRepo = 'lib/features/authentication/domain/repos/auth_repo.dart';
-  static const String reposAuthRepoImplementation = 'lib/features/authentication/data/repos/auth_repo_implementation.dart';
-  static const String servicesFirebaseAuthService = 'lib/core/services/firebase_auth_service.dart';
-  static const String servicesSharedPreferencesSingleton = 'lib/core/services/shared_preferences_singleton.dart';
-  static const String signUpCubitSignUpCubit = 'lib/features/authentication/presentation/cubits/sign_up_cubit/sign_up_cubit.dart';
-  static const String signUpCubitSignUpState = 'lib/features/authentication/presentation/cubits/sign_up_cubit/sign_up_state.dart';
-  static const String utilsAppTextStyles = 'lib/core/utils/app_text_styles.dart';
-  static const String viewsLoginView = 'lib/features/authentication/presentation/views/login_view.dart';
-  static const String viewsOnBoardingView = 'lib/features/on_boarding/presentation/views/on_boarding_view.dart';
-  static const String viewsSignUpView = 'lib/features/authentication/presentation/views/sign_up_view.dart';
-  static const String viewsSplashView = 'lib/features/splash/presentation/views/splash_view.dart';
-  static const String widgetsAlreadyHaveAnAccount = 'lib/features/authentication/presentation/views/widgets/already_have_an_account.dart';
-  static const String widgetsCustomAppBar = 'lib/core/widgets/custom_app_bar.dart';
-  static const String widgetsCustomButton = 'lib/core/widgets/custom_button.dart';
-  static const String widgetsCustomCheckbox = 'lib/features/authentication/presentation/views/widgets/custom_checkbox.dart';
-  static const String widgetsCustomTextField = 'lib/core/widgets/custom_text_field.dart';
-  static const String widgetsDontHaveAnAccount = 'lib/features/authentication/presentation/views/widgets/dont_have_an_account.dart';
-  static const String widgetsLoginViewBody = 'lib/features/authentication/presentation/views/widgets/login_view_body.dart';
-  static const String widgetsOnBoardingPageView = 'lib/features/on_boarding/presentation/views/widgets/on_boarding_page_view.dart';
-  static const String widgetsOnBoardingViewBody = 'lib/features/on_boarding/presentation/views/widgets/on_boarding_view_body.dart';
-  static const String widgetsOrDivider = 'lib/features/authentication/presentation/views/widgets/or_divider.dart';
-  static const String widgetsPageViewItem = 'lib/features/on_boarding/presentation/views/widgets/page_view_item.dart';
-  static const String widgetsShowCustomSnackBar = 'lib/core/widgets/show_custom_snack_bar.dart';
-  static const String widgetsShowErrorSnackBar = 'lib/core/widgets/show_error_snack_bar.dart';
-  static const String widgetsSignUpViewBody = 'lib/features/authentication/presentation/views/widgets/sign_up_view_body.dart';
-  static const String widgetsSignUpViewBodyBlocConsumer = 'lib/features/authentication/presentation/views/widgets/sign_up_view_body_bloc_consumer.dart';
-  static const String widgetsSocialLoginButton = 'lib/features/authentication/presentation/views/widgets/social_login_button.dart';
-  static const String widgetsSplashViewBody = 'lib/features/splash/presentation/views/widgets/splash_view_body.dart';
-  static const String widgetsTermsAndCondition = 'lib/features/authentication/presentation/views/widgets/terms_and_condition.dart';
-
+  static const String imagesSplashBottomCircles =
+      'assets/images/splash_bottom_circles.svg';
+  static const String imagesSplashTopPlant =
+      'assets/images/splash_top_plant.svg';
 }
