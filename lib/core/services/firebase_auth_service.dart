@@ -35,4 +35,33 @@ class FirebaseAuthService {
       throw CustomException('حدث خطأ ما، برجاء المحاولة لاحقًا');
     }
   }
+
+  Future<User> signInWithEmailAndPassword({
+    required String emailAddress,
+    required String password,
+  }) async {
+    try {
+      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailAddress,
+        password: password,
+      );
+      return credential.user!;
+    } on FirebaseAuthException catch (e) {
+      log(
+        'Exception in FirebaseAuthService.SignInWithEmailAndPassword: $e with code: ${e.code}',
+      );
+      if (e.code == 'user-not-found' || e.code == 'wrong-password') {
+        throw CustomException('البريد الإلكتروني أو كلمة المرور غير صحيحة');
+      } else if (e.code == 'network-request-failed') {
+        throw CustomException('يرجى التحقق من اتصال الانترنت');
+      } else {
+        throw CustomException('حدث خطأ ما، برجاء المحاولة لاحقًا');
+      }
+    } catch (e) {
+      log(
+        'Exception in FirebaseAuthService.createUserWithEmailAndPassword: $e',
+      );
+      throw CustomException('حدث خطأ ما، برجاء المحاولة لاحقًا');
+    }
+  }
 }
