@@ -50,7 +50,9 @@ class FirebaseAuthService {
       log(
         'Exception in FirebaseAuthService.SignInWithEmailAndPassword: $e with code: ${e.code}',
       );
-      if (e.code == 'user-not-found' || e.code == 'wrong-password') {
+      if (e.code == 'invalid-credential') {
+        throw CustomException('البريد الإلكتروني أو كلمة المرور غير صحيحة');
+      } else if (e.code == 'user-not-found' || e.code == 'wrong-password') {
         throw CustomException('البريد الإلكتروني أو كلمة المرور غير صحيحة');
       } else if (e.code == 'network-request-failed') {
         throw CustomException('يرجى التحقق من اتصال الانترنت');

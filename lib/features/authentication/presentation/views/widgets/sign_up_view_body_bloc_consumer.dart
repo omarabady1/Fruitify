@@ -18,6 +18,7 @@ class SignUpViewBodyBlocConsumer extends StatelessWidget {
             context,
             'تم تسجيل الحساب، برجاء العودة وتسجيل الدخول',
           );
+          Navigator.pop(context);
         } else if (state is SignUpFailure) {
           showErrorSnackBar(context, state.errMessage);
         }
