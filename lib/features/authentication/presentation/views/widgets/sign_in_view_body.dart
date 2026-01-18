@@ -110,7 +110,9 @@ class _SignInViewBodyState extends State<SignInViewBody> {
               SocialSignUpItem(
                 label: 'تسجيل بواسطة فيسبوك',
                 icon: Assets.imagesFacebookIcon,
-                onTap: () {},
+                onTap: () {
+                  context.read<SignInCubit>().signInWithFacebook();
+                },
               ),
               const SizedBox(height: 16),
             ],

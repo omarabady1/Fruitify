@@ -63,4 +63,15 @@ class AuthRepoImplementation implements AuthRepo {
       return left(ServerFailure('حدث خطأ ما، برجاء المحاولة لاحقًا'));
     }
   }
+
+  @override
+  Future<Either<Failure, UserEntity>> signInWithFacebook()async {
+    try {
+      var user = await firebaseAuthService.signInWithFacebook();
+      return right(UserModel.fromFirebaseUser(user));
+    } catch (e) {
+      log('Exception in AuthRepoImplementation.signInWithFacebook: $e');
+      return left(ServerFailure('حدث خطأ ما، برجاء المحاولة لاحقًا'));
+    }
+  }
 }
