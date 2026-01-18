@@ -9,8 +9,8 @@ import '../../../../../constants.dart';
 import 'dont_have_an_account.dart';
 import 'or_divider.dart';
 
-class LoginViewBody extends StatelessWidget {
-  const LoginViewBody({super.key});
+class SignInViewBody extends StatelessWidget {
+  const SignInViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {

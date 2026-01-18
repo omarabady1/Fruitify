@@ -4,7 +4,7 @@ import 'package:fruitify/constants.dart';
 import 'package:fruitify/core/services/shared_preferences_singleton.dart';
 import 'package:fruitify/core/utils/app_text_styles.dart';
 
-import '../../../../authentication/presentation/views/login_view.dart';
+import '../../../../authentication/presentation/views/sign_in_view.dart';
 
 class PageViewItem extends StatelessWidget {
   const PageViewItem({
@@ -57,7 +57,7 @@ class PageViewItem extends StatelessWidget {
                         Prefs.setBool(isOnBoardingSeen, true);
                         Navigator.pushReplacementNamed(
                           context,
-                          LoginView.routeName,
+                          SignInView.routeName,
                         );
                       },
                       child: Text(

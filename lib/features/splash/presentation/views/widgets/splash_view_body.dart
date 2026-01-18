@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruitify/constants.dart';
 import 'package:fruitify/core/services/shared_preferences_singleton.dart';
-import 'package:fruitify/features/authentication/presentation/views/login_view.dart';
+import 'package:fruitify/features/authentication/presentation/views/sign_in_view.dart';
 import 'package:fruitify/features/on_boarding/presentation/views/on_boarding_view.dart';
 
 import '../../../../../generated/assets.dart';
@@ -108,7 +108,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     Future.delayed(const Duration(milliseconds: 2300), () {
       if (mounted) {
         Prefs.getBool(isOnBoardingSeen)
-            ? Navigator.pushReplacementNamed(context, LoginView.routeName)
+            ? Navigator.pushReplacementNamed(context, SignInView.routeName)
             : Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
       }
     });

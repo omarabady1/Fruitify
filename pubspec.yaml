@@ -106,7 +106,6 @@ flutter:
   assets:
     - assets/
     - assets/images/
-    - lib/features/authentication/presentation/views/widgets/
     - .env
 
 flutter_launcher_icons:
