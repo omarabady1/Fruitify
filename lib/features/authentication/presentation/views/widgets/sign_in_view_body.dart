@@ -80,7 +80,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                   FocusScope.of(context).unfocus();
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-                    context.read<SignInCubit>().signIn(email, password);
+                    context.read<SignInCubit>().signInWithEmailAndPassword(email, password);
                   } else {
                     setState(() {
                       autoValidateMode = AutovalidateMode.always;
@@ -96,7 +96,9 @@ class _SignInViewBodyState extends State<SignInViewBody> {
               SocialSignUpItem(
                 label: 'تسجيل بواسطة جوجل',
                 icon: Assets.imagesGoogleIcon,
-                onTap: () {},
+                onTap: () {
+                  context.read<SignInCubit>().signInWithGoogle();
+                },
               ),
               const SizedBox(height: 16),
               SocialSignUpItem(
