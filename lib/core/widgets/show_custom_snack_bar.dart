@@ -6,6 +6,7 @@ import '../utils/app_text_styles.dart';
 void showCustomSnackBar(BuildContext context, String text) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
+      duration: Duration(seconds: 1),
       content: Row(
         children: [
           const Icon(Icons.check_circle_outline, color: Colors.white),
