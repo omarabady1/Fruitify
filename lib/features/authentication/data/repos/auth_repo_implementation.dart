@@ -1,32 +1,50 @@
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fruitify/core/errors/exceptions.dart';
 import 'package:fruitify/core/errors/failures.dart';
+import 'package:fruitify/core/services/database_service.dart';
 import 'package:fruitify/features/authentication/data/models/user_model.dart';
 import 'package:fruitify/features/authentication/domain/entities/user_entity.dart';
 import 'package:fruitify/features/authentication/domain/repos/auth_repo.dart';
 
 import '../../../../core/services/firebase_auth_service.dart';
+import '../../../../core/utils/backend_endpoints.dart';
 
 class AuthRepoImplementation implements AuthRepo {
   final FirebaseAuthService firebaseAuthService;
-  AuthRepoImplementation(this.firebaseAuthService);
+  final DatabaseService databaseService;
+  AuthRepoImplementation({
+    required this.firebaseAuthService,
+    required this.databaseService,
+  });
   @override
   Future<Either<Failure, UserEntity>> createUserWithEmailAndPassword(
     String email,
     String password,
     String name,
   ) async {
+    User? user;
     try {
-      var user = await firebaseAuthService.createUserWithEmailAndPassword(
+      user = await firebaseAuthService.createUserWithEmailAndPassword(
         emailAddress: email,
         password: password,
       );
-      return right(UserModel.fromFirebaseUser(user));
+      UserEntity userEntity = UserEntity(name: name, email: email, userID: user.uid);
+      await addUser(
+        user: userEntity,
+      );
+      return right(userEntity);
     } on CustomException catch (e) {
+      if (user != null) {
+        firebaseAuthService.deleteUser();
+      }
       return left(ServerFailure(e.message));
     } catch (e) {
+      if (user != null) {
+        firebaseAuthService.deleteUser();
+      }
       log(
         'Exception in AuthRepoImplementation.createUserWithEmailAndPassword: $e',
       );
@@ -65,7 +83,7 @@ class AuthRepoImplementation implements AuthRepo {
   }
 
   @override
-  Future<Either<Failure, UserEntity>> signInWithFacebook()async {
+  Future<Either<Failure, UserEntity>> signInWithFacebook() async {
     try {
       var user = await firebaseAuthService.signInWithFacebook();
       return right(UserModel.fromFirebaseUser(user));
@@ -73,5 +91,13 @@ class AuthRepoImplementation implements AuthRepo {
       log('Exception in AuthRepoImplementation.signInWithFacebook: $e');
       return left(ServerFailure('حدث خطأ ما، برجاء المحاولة لاحقًا'));
     }
+  }
+
+  @override
+  Future<dynamic> addUser({required UserEntity user}) async {
+    databaseService.addData(
+      path: BackendEndpoints.addUserData,
+      data: user.toMap(),
+    );
   }
 }
