@@ -117,6 +117,6 @@ class AuthRepoImplementation implements AuthRepo {
 
   @override
   Future<bool> checkIfUserExists(String uid) async {
-    return await databaseService.checkIfValueExist('users', 'userID', uid);
+    return await databaseService.checkIfValueExists('users', 'userID', uid);
   }
 }

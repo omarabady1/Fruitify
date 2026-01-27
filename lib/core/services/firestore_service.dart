@@ -13,7 +13,7 @@ class FirestoreService implements DatabaseService {
   }
 
   @override
-  Future<bool> checkIfValueExist(
+  Future<bool> checkIfValueExists(
     String collection,
     String field,
     String value,
@@ -25,5 +25,14 @@ class FirestoreService implements DatabaseService {
         .get();
 
     return result.docs.isNotEmpty;
+  }
+
+  @override
+  Future<Map<String, dynamic>> getData({
+    required String path,
+    required String docId,
+  }) async {
+    var data = await firestore.collection(path).doc(docId).get();
+    return data.data() as Map<String, dynamic>;
   }
 }
