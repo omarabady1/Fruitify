@@ -11,4 +11,19 @@ class FirestoreService implements DatabaseService {
   }) async {
     await firestore.collection(path).add(data);
   }
+
+  @override
+  Future<bool> checkIfValueExist(
+    String collection,
+    String field,
+    String value,
+  ) async {
+    final result = await FirebaseFirestore.instance
+        .collection(collection)
+        .where(field, isEqualTo: value)
+        .limit(1)
+        .get();
+
+    return result.docs.isNotEmpty;
+  }
 }

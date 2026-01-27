@@ -31,24 +31,28 @@ class AuthRepoImplementation implements AuthRepo {
         emailAddress: email,
         password: password,
       );
-      UserEntity userEntity = UserEntity(name: name, email: email, userID: user.uid);
-      await addUser(
-        user: userEntity,
+      UserEntity userEntity = UserEntity(
+        name: name,
+        email: email,
+        userID: user.uid,
       );
+      await addUser(user: userEntity);
       return right(userEntity);
     } on CustomException catch (e) {
-      if (user != null) {
-        firebaseAuthService.deleteUser();
-      }
+      deleteUser(user);
       return left(ServerFailure(e.message));
     } catch (e) {
-      if (user != null) {
-        firebaseAuthService.deleteUser();
-      }
+      deleteUser(user);
       log(
         'Exception in AuthRepoImplementation.createUserWithEmailAndPassword: $e',
       );
       return left(ServerFailure('حدث خطأ ما، برجاء المحاولة لاحقًا'));
+    }
+  }
+
+  void deleteUser(User? user) {
+    if (user != null) {
+      firebaseAuthService.deleteUser();
     }
   }
 
@@ -73,10 +77,14 @@ class AuthRepoImplementation implements AuthRepo {
 
   @override
   Future<Either<Failure, UserEntity>> signInWithGoogle() async {
+    User? user;
     try {
-      var user = await firebaseAuthService.signInWithGoogle();
-      return right(UserModel.fromFirebaseUser(user));
+      user = await firebaseAuthService.signInWithGoogle();
+      UserEntity userEntity = UserModel.fromFirebaseUser(user);
+      await addUser(user: userEntity);
+      return right(userEntity);
     } catch (e) {
+      deleteUser(user);
       log('Exception in AuthRepoImplementation.signInWithGoogle: $e');
       return left(ServerFailure('حدث خطأ ما، برجاء المحاولة لاحقًا'));
     }
@@ -84,10 +92,14 @@ class AuthRepoImplementation implements AuthRepo {
 
   @override
   Future<Either<Failure, UserEntity>> signInWithFacebook() async {
+    User? user;
     try {
       var user = await firebaseAuthService.signInWithFacebook();
-      return right(UserModel.fromFirebaseUser(user));
+      UserEntity userEntity = UserModel.fromFirebaseUser(user);
+      await addUser(user: userEntity);
+      return right(userEntity);
     } catch (e) {
+      deleteUser(user);
       log('Exception in AuthRepoImplementation.signInWithFacebook: $e');
       return left(ServerFailure('حدث خطأ ما، برجاء المحاولة لاحقًا'));
     }
@@ -95,9 +107,16 @@ class AuthRepoImplementation implements AuthRepo {
 
   @override
   Future<dynamic> addUser({required UserEntity user}) async {
-    databaseService.addData(
-      path: BackendEndpoints.addUserData,
-      data: user.toMap(),
-    );
+    if (!await checkIfUserExists(user.userID)) {
+      databaseService.addData(
+        path: BackendEndpoints.addUserData,
+        data: user.toMap(),
+      );
+    }
+  }
+
+  @override
+  Future<bool> checkIfUserExists(String uid) async {
+    return await databaseService.checkIfValueExist('users', 'userID', uid);
   }
 }

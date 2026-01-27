@@ -1,0 +1,7 @@
+Manufacturer:Huawei Technologies Co., Ltd;
+ProductClass:DN8245V-56;
+SerialNumber:45475445AA0A4909;
+IP:10.46.235.2;
+HWVer:351A.A;
+SWVer:V500R022C10SPC205 WE;
+
