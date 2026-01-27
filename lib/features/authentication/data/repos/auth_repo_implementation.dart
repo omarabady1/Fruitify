@@ -66,7 +66,8 @@ class AuthRepoImplementation implements AuthRepo {
         emailAddress: email,
         password: password,
       );
-      return right(UserModel.fromFirebaseUser(user));
+      var userEntity = await getUserData(userID: user.uid);
+      return right(userEntity);
     } on CustomException catch (e) {
       return left(ServerFailure(e.message));
     } catch (e) {
@@ -111,6 +112,7 @@ class AuthRepoImplementation implements AuthRepo {
       databaseService.addData(
         path: BackendEndpoints.addUserData,
         data: user.toMap(),
+        docId: user.userID,
       );
     }
   }
@@ -118,5 +120,14 @@ class AuthRepoImplementation implements AuthRepo {
   @override
   Future<bool> checkIfUserExists(String uid) async {
     return await databaseService.checkIfValueExists('users', 'userID', uid);
+  }
+
+  @override
+  Future<UserEntity> getUserData({required String userID}) async {
+    var userData = await databaseService.getData(
+      path: BackendEndpoints.getUserData,
+      docId: userID,
+    );
+    return UserModel.fromJson(userData);
   }
 }
