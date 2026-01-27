@@ -82,7 +82,11 @@ class AuthRepoImplementation implements AuthRepo {
     try {
       user = await firebaseAuthService.signInWithGoogle();
       UserEntity userEntity = UserModel.fromFirebaseUser(user);
-      await addUser(user: userEntity);
+      if (!await checkIfUserExists(user.uid)) {
+        await addUser(user: userEntity);
+      } else {
+        await getUserData(userID: user.uid);
+      }
       return right(userEntity);
     } catch (e) {
       deleteUser(user);
@@ -97,7 +101,11 @@ class AuthRepoImplementation implements AuthRepo {
     try {
       var user = await firebaseAuthService.signInWithFacebook();
       UserEntity userEntity = UserModel.fromFirebaseUser(user);
-      await addUser(user: userEntity);
+      if (!await checkIfUserExists(user.uid)) {
+        await addUser(user: userEntity);
+      } else {
+        await getUserData(userID: user.uid);
+      }
       return right(userEntity);
     } catch (e) {
       deleteUser(user);
@@ -108,13 +116,11 @@ class AuthRepoImplementation implements AuthRepo {
 
   @override
   Future<dynamic> addUser({required UserEntity user}) async {
-    if (!await checkIfUserExists(user.userID)) {
-      databaseService.addData(
-        path: BackendEndpoints.addUserData,
-        data: user.toMap(),
-        docId: user.userID,
-      );
-    }
+    databaseService.addData(
+      path: BackendEndpoints.addUserData,
+      data: user.toMap(),
+      docId: user.userID,
+    );
   }
 
   @override
