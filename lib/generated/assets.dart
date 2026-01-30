@@ -4,22 +4,19 @@ class Assets {
 
   static const String fruitify = '.env';
   static const String imagesAppleIcon = 'assets/images/apple_icon.svg';
+  static const String imagesAvatar1 = 'assets/images/avatar1.png';
   static const String imagesCheck = 'assets/images/check.svg';
   static const String imagesFacebookIcon = 'assets/images/facebook_icon.svg';
   static const String imagesFruitBasket1 = 'assets/images/fruit_basket1.svg';
   static const String imagesFruitifyLogo = 'assets/images/fruitify_logo.png';
   static const String imagesGoogleIcon = 'assets/images/google_icon.svg';
-  static const String imagesPageViewItem1BackgroundImage =
-      'assets/images/page_view_item1_background_image.svg';
-  static const String imagesPageViewItem1Title =
-      'assets/images/page_view_item_1_title.svg';
-  static const String imagesPageViewItem2BackgroundImage =
-      'assets/images/page_view_item2_background_image.svg';
-  static const String imagesPageViewItem2Title =
-      'assets/images/page_view_item_2_title.svg';
+  static const String imagesNotifications = 'assets/images/notifications.svg';
+  static const String imagesPageViewItem1BackgroundImage = 'assets/images/page_view_item1_background_image.svg';
+  static const String imagesPageViewItem1Title = 'assets/images/page_view_item_1_title.svg';
+  static const String imagesPageViewItem2BackgroundImage = 'assets/images/page_view_item2_background_image.svg';
+  static const String imagesPageViewItem2Title = 'assets/images/page_view_item_2_title.svg';
   static const String imagesPineapple = 'assets/images/pineapple.svg';
-  static const String imagesSplashBottomCircles =
-      'assets/images/splash_bottom_circles.svg';
-  static const String imagesSplashTopPlant =
-      'assets/images/splash_top_plant.svg';
+  static const String imagesSplashBottomCircles = 'assets/images/splash_bottom_circles.svg';
+  static const String imagesSplashTopPlant = 'assets/images/splash_top_plant.svg';
+
 }
