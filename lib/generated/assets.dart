@@ -16,6 +16,8 @@ class Assets {
   static const String imagesPageViewItem2BackgroundImage = 'assets/images/page_view_item2_background_image.svg';
   static const String imagesPageViewItem2Title = 'assets/images/page_view_item_2_title.svg';
   static const String imagesPineapple = 'assets/images/pineapple.svg';
+  static const String imagesSearchNormal = 'assets/images/search-normal.svg';
+  static const String imagesSetting4 = 'assets/images/setting-4.svg';
   static const String imagesSplashBottomCircles = 'assets/images/splash_bottom_circles.svg';
   static const String imagesSplashTopPlant = 'assets/images/splash_top_plant.svg';
 
