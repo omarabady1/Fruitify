@@ -6,7 +6,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fruitify/core/functions/setup_service_locator.dart';
 import 'package:fruitify/core/helper_functions/on_generate_routs.dart';
 import 'package:fruitify/core/utils/simple_bloc_observer.dart';
-import 'package:fruitify/features/splash/presentation/views/splash_view.dart';
+import 'package:fruitify/features/home/presentation/views/home_view.dart';
 import 'core/services/shared_preferences_singleton.dart';
 import 'firebase_options.dart';
 
@@ -41,7 +41,7 @@ class Fruitify extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
-      initialRoute: SplashView.routeName,
+      initialRoute: HomeView.routeName,
     );
   }
 }
