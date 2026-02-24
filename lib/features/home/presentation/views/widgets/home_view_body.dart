@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruitify/features/home/presentation/views/widgets/custom_search_text_field.dart';
+import 'package:fruitify/features/home/presentation/views/widgets/featured_item.dart';
 import 'package:fruitify/features/home/presentation/views/widgets/fruit_item.dart';
 
 import 'custom_home_app_bar.dart';
@@ -23,14 +24,16 @@ class HomeViewBody extends StatelessWidget {
               ],
             ),
           ),
+          SliverToBoxAdapter(child: SizedBox(height: 12)),
+          SliverToBoxAdapter(child: FeaturedItem()),
+          SliverToBoxAdapter(child: SizedBox(height: 12)),
           SliverGrid.builder(
             itemCount: 10,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              childAspectRatio: 163/214,
+              childAspectRatio: 163 / 214,
               crossAxisCount: 2,
             ),
-            itemBuilder: (context, index)
-            {
+            itemBuilder: (context, index) {
               return FruitItem();
             },
           ),
