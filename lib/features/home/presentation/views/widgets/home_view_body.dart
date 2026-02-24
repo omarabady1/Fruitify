@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fruitify/features/home/presentation/views/widgets/custom_search_text_field.dart';
-import 'package:fruitify/features/home/presentation/views/widgets/featured_item.dart';
 import 'package:fruitify/features/home/presentation/views/widgets/fruit_item.dart';
 
 import 'custom_home_app_bar.dart';
+import 'featured_item_page_view.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -25,7 +25,9 @@ class HomeViewBody extends StatelessWidget {
             ),
           ),
           SliverToBoxAdapter(child: SizedBox(height: 12)),
-          SliverToBoxAdapter(child: FeaturedItem()),
+          SliverToBoxAdapter(
+            child: FeaturedItemPageView(),
+          ),
           SliverToBoxAdapter(child: SizedBox(height: 12)),
           SliverGrid.builder(
             itemCount: 10,
