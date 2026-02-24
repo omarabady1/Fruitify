@@ -8,39 +8,70 @@ class FeaturedItem extends StatelessWidget {
   const FeaturedItem({super.key});
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.sizeOf(context).width;
     return AspectRatio(
       aspectRatio: 342 / 158,
-      child: Stack(
-        children: [
-          Image.asset(Assets.imagesFruits, fit: BoxFit.fitWidth),
-          Container(
-            padding: EdgeInsets.only(top: 25, bottom: 29, right: 25),
-            width: width * 0.5,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: svg.Svg(Assets.imagesGreenElipse),
-                fit: BoxFit.fitHeight,
-              ),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(4),
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            return Stack(
+              clipBehavior: Clip.hardEdge,
               children: [
-                Text(
-                  'عروض العيد',
-                  style: AppTextStyles.regular13.copyWith(color: Colors.white),
+                Positioned.fill(
+                  child: Image.asset(Assets.imagesFruits, fit: BoxFit.cover),
                 ),
-                SizedBox(height: 8),
-                Text(
-                  'خصم 25%',
-                  style: AppTextStyles.bold19.copyWith(color: Colors.white),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: LayoutBuilder(
+                    builder: (context, constraints) {
+                      return SizedBox(
+                        width: constraints.maxWidth * 0.5,
+                        height: constraints.maxHeight,
+                        child: Stack(
+                          children: [
+                            Positioned.fill(
+                              child: Image(
+                                image: svg.Svg(Assets.imagesGreenElipse),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                top: 25,
+                                bottom: 29,
+                                right: 25,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'عروض العيد',
+                                    style: AppTextStyles.regular13.copyWith(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    'خصم 25%',
+                                    style: AppTextStyles.bold19.copyWith(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  const Spacer(),
+                                  FeaturedItemButton(onPressed: () {}),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
                 ),
-                const Spacer(),
-                SizedBox(child: FeaturedItemButton(onPressed: () {})),
               ],
-            ),
-          ),
-        ],
+            );
+          },
+        ),
       ),
     );
   }
