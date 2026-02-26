@@ -5,6 +5,8 @@ class Assets {
   static const String fruitify = '.env';
   static const String imagesAppleIcon = 'assets/images/apple_icon.svg';
   static const String imagesAvatar1 = 'assets/images/avatar1.png';
+  static const String imagesCartActiveIcon = 'assets/images/cart_active_icon.svg';
+  static const String imagesCartIcon = 'assets/images/cart_icon.svg';
   static const String imagesCheck = 'assets/images/check.svg';
   static const String imagesFacebookIcon = 'assets/images/facebook_icon.svg';
   static const String imagesFruitBasket1 = 'assets/images/fruit_basket1.svg';
@@ -14,6 +16,8 @@ class Assets {
   static const String imagesGreenCircle = 'assets/images/green_circle.svg';
   static const String imagesGreenElipse = 'assets/images/green_elipse.svg';
   static const String imagesHeart = 'assets/images/heart.svg';
+  static const String imagesHomeActiveIcon = 'assets/images/home_active_icon.svg';
+  static const String imagesHomeIcon = 'assets/images/home_icon.svg';
   static const String imagesNotifications = 'assets/images/notifications.svg';
   static const String imagesOrangeElips = 'assets/images/orange_elips.svg';
   static const String imagesOrangeSlices = 'assets/images/orange_slices.png';
@@ -23,11 +27,15 @@ class Assets {
   static const String imagesPageViewItem2Title = 'assets/images/page_view_item_2_title.svg';
   static const String imagesPineapple = 'assets/images/pineapple.svg';
   static const String imagesPlus = 'assets/images/plus.svg';
+  static const String imagesProductsActiveIcon = 'assets/images/products_active_icon.svg';
+  static const String imagesProductsIcon = 'assets/images/products_icon.svg';
   static const String imagesSearchNormal = 'assets/images/search-normal.svg';
   static const String imagesSetting4 = 'assets/images/setting-4.svg';
   static const String imagesSplashBottomCircles = 'assets/images/splash_bottom_circles.svg';
   static const String imagesSplashTopPlant = 'assets/images/splash_top_plant.svg';
   static const String imagesStrawberry = 'assets/images/strawberry.png';
+  static const String imagesUserActiveIcon = 'assets/images/user_active_icon.svg';
+  static const String imagesUserIcon = 'assets/images/user_icon.svg';
   static const String imagesWatermelon = 'assets/images/watermelon.svg';
 
 }

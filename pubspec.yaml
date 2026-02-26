@@ -52,6 +52,8 @@ dependencies:
   flutter_facebook_auth: ^7.1.5
   cloud_firestore: ^6.1.1
   flutter_svg_provider: ^1.0.7
+  liquid_glass_bottom_bar: ^0.0.6
+  google_nav_bar: ^5.0.7
 
 dev_dependencies:
   flutter_test:
