@@ -68,7 +68,12 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
           maintainAnimation: true,
           maintainState: true,
           child: Padding(
-            padding: const EdgeInsets.only(right: 16, left: 16, bottom: 43, top: 29),
+            padding: const EdgeInsets.only(
+              right: 16,
+              left: 16,
+              bottom: 43,
+              top: 29,
+            ),
             child: CustomButton(
               label: 'ابدأ الآن',
               onPressed: () {

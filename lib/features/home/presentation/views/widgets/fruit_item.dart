@@ -28,7 +28,7 @@ class FruitItem extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: 30),
-                Flexible(child: Image.asset(Assets.imagesStrawberry,)),
+                Flexible(child: Image.asset(Assets.imagesStrawberry)),
                 SizedBox(height: 10),
                 ListTile(
                   contentPadding: EdgeInsets.zero,
@@ -56,18 +56,17 @@ class FruitItem extends StatelessWidget {
                     shape: const CircleBorder(),
                     child: InkWell(
                       customBorder: const CircleBorder(),
-                      splashColor: Colors.white.withValues(alpha: 0.3), // splash color
+                      splashColor: Colors.white.withValues(
+                        alpha: 0.3,
+                      ), // splash color
                       highlightColor: Colors.white.withValues(alpha: 0.1),
                       onTap: () {},
                       child: const Padding(
                         padding: EdgeInsets.all(8),
-                        child: Icon(
-                          Icons.add,
-                          color: Colors.white,
-                        ),
+                        child: Icon(Icons.add, color: Colors.white),
                       ),
                     ),
-                  )
+                  ),
                 ),
               ],
             ),

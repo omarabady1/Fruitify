@@ -80,7 +80,10 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                   FocusScope.of(context).unfocus();
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-                    context.read<SignInCubit>().signInWithEmailAndPassword(email, password);
+                    context.read<SignInCubit>().signInWithEmailAndPassword(
+                      email,
+                      password,
+                    );
                   } else {
                     setState(() {
                       autoValidateMode = AutovalidateMode.always;

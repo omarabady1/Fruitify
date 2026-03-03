@@ -80,7 +80,10 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                     );
                   } else {
                     if (!termsKey.currentState!.validate()) {
-                      showErrorSnackBar(context, 'يجب الموافقة على الشروط والأحكام');
+                      showErrorSnackBar(
+                        context,
+                        'يجب الموافقة على الشروط والأحكام',
+                      );
                     }
                     setState(() {
                       autoValidateMode = AutovalidateMode.always;

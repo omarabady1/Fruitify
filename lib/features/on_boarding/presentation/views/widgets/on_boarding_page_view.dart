@@ -4,7 +4,7 @@ import 'package:fruitify/features/on_boarding/presentation/views/widgets/page_vi
 import 'package:fruitify/generated/assets.dart';
 
 class OnBoardingPageView extends StatelessWidget {
-  const OnBoardingPageView(this.pageController,{super.key});
+  const OnBoardingPageView(this.pageController, {super.key});
   final PageController pageController;
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class OnBoardingPageView extends StatelessWidget {
           backgroundImage: Assets.imagesPageViewItem2BackgroundImage,
           title: SvgPicture.asset(Assets.imagesPageViewItem2Title),
           subtitle:
-            'نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية.'
+              'نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية.',
         ),
       ],
     );

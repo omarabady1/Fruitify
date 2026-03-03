@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'featured_item.dart';
 
 class FeaturedItemPageView extends StatelessWidget {
-  const FeaturedItemPageView({
-    super.key,
-  });
+  const FeaturedItemPageView({super.key});
 
   @override
   Widget build(BuildContext context) {
