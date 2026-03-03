@@ -6,9 +6,11 @@ AppBar buildAppBar(
   BuildContext context, {
   required String title,
   bool showLeading = true,
+  List<Widget>? actions,
 }) {
   return AppBar(
     scrolledUnderElevation: 0,
+    actions: actions,
     title: Text(title, style: AppTextStyles.bold19),
     centerTitle: true,
     leading: showLeading

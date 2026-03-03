@@ -5,6 +5,7 @@ import 'package:fruitify/features/splash/presentation/views/splash_view.dart';
 import '../../features/authentication/presentation/views/sign_in_view.dart';
 import '../../features/authentication/presentation/views/sign_up_view.dart';
 import '../../features/home/presentation/views/home_view.dart';
+import '../../features/best_selling/presentation/views/best_selling_view.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -18,7 +19,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const SignUpView());
     case HomeView.routeName:
       return MaterialPageRoute(builder: (context) => const HomeView());
-
+    case BestSellingView.routeName:
+      return MaterialPageRoute(builder: (context) => const BestSellingView());
     default:
       return MaterialPageRoute(builder: (context) => Container());
   }

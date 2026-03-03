@@ -28,9 +28,7 @@ class HomeViewBody extends StatelessWidget {
           SliverToBoxAdapter(child: SizedBox(height: 12)),
           SliverToBoxAdapter(child: FeaturedItemPageView()),
           SliverToBoxAdapter(child: SizedBox(height: 12)),
-          SliverToBoxAdapter(
-            child: BestSellingHeader(),
-          ),
+          SliverToBoxAdapter(child: BestSellingHeader()),
           SliverToBoxAdapter(child: SizedBox(height: 8)),
           SliverGrid.builder(
             itemCount: 10,
