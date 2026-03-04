@@ -70,7 +70,12 @@ class FirebaseAuthService {
   }
 
   Future<User> signInWithGoogle() async {
-    GoogleSignIn.instance.initialize();
+    try {
+      await GoogleSignIn.instance.signOut();
+    } catch (_) {}
+
+    await GoogleSignIn.instance.initialize();
+
     final GoogleSignInAccount googleUser = await GoogleSignIn.instance
         .authenticate();
 
@@ -96,5 +101,24 @@ class FirebaseAuthService {
 
   Future deleteUser() async {
     await FirebaseAuth.instance.currentUser!.delete();
+  }
+
+  Future<bool> verifyAndCheckUser() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      try {
+        await user.reload();
+        return true;
+      } on FirebaseAuthException catch (e) {
+        if (e.code == 'user-not-found' || e.code == 'user-disabled') {
+          await FirebaseAuth.instance.signOut();
+          return false;
+        }
+        return true;
+      } catch (e) {
+        return true;
+      }
+    }
+    return false;
   }
 }
