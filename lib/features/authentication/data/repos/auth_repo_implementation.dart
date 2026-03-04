@@ -1,10 +1,13 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fruitify/constants.dart';
 import 'package:fruitify/core/errors/exceptions.dart';
 import 'package:fruitify/core/errors/failures.dart';
 import 'package:fruitify/core/services/database_service.dart';
+import 'package:fruitify/core/services/shared_preferences_singleton.dart';
 import 'package:fruitify/features/authentication/data/models/user_model.dart';
 import 'package:fruitify/features/authentication/domain/entities/user_entity.dart';
 import 'package:fruitify/features/authentication/domain/repos/auth_repo.dart';
@@ -67,6 +70,7 @@ class AuthRepoImplementation implements AuthRepo {
         password: password,
       );
       var userEntity = await getUserData(userID: user.uid);
+      await saveUserData(user: userEntity);
       return right(userEntity);
     } on CustomException catch (e) {
       return left(ServerFailure(e.message));
@@ -82,6 +86,7 @@ class AuthRepoImplementation implements AuthRepo {
     try {
       user = await firebaseAuthService.signInWithGoogle();
       UserEntity userEntity = UserModel.fromFirebaseUser(user);
+      await saveUserData(user: userEntity);
       if (!await checkIfUserExists(user.uid)) {
         await addUser(user: userEntity);
       } else {
@@ -101,6 +106,7 @@ class AuthRepoImplementation implements AuthRepo {
     try {
       var user = await firebaseAuthService.signInWithFacebook();
       UserEntity userEntity = UserModel.fromFirebaseUser(user);
+      await saveUserData(user: userEntity);
       if (!await checkIfUserExists(user.uid)) {
         await addUser(user: userEntity);
       } else {
@@ -118,9 +124,15 @@ class AuthRepoImplementation implements AuthRepo {
   Future<dynamic> addUser({required UserEntity user}) async {
     databaseService.addData(
       path: BackendEndpoints.addUserData,
-      data: user.toMap(),
+      data: UserModel.fromEntity(user).toMap(),
       docId: user.userID,
     );
+  }
+
+  @override
+  Future<dynamic> saveUserData({required UserEntity user}) async {
+    var jsonData = UserModel.fromEntity(user).toMap();
+    Prefs.setString(kUserData, jsonEncode(jsonData));
   }
 
   @override

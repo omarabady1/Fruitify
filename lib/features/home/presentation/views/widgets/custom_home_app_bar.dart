@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruitify/core/helper_functions/get_user.dart';
 import '../../../../../core/widgets/notification_widget.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../generated/assets.dart';
@@ -15,7 +16,7 @@ class CustomHomeAppBar extends StatelessWidget {
         'صباح الخير',
         style: AppTextStyles.regular16.copyWith(color: Colors.grey),
       ),
-      subtitle: Text('مايك إيرمنتراوت', style: AppTextStyles.bold16),
+      subtitle: Text(getUser().name, style: AppTextStyles.bold16),
       trailing: NotificationWidget(),
     );
   }
