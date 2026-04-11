@@ -1,0 +1,75 @@
+import 'dart:io';
+
+import 'package:fruitify/core/entities/product_entity.dart';
+import 'package:fruitify/core/models/review_model.dart';
+
+class ProductModel {
+  final String productName;
+  final String price;
+  final String code;
+  final String description;
+  final File image;
+  final bool isFeatured;
+  String? imageUrl;
+  final int expirationMonths;
+  final bool isOrganic;
+  final int calories;
+  final int unit;
+  num avgRating;
+  num ratingCount;
+  final List<ReviewModel> reviews;
+
+  ProductModel({
+    required this.productName,
+    required this.price,
+    required this.code,
+    required this.description,
+    required this.image,
+    required this.isFeatured,
+    this.imageUrl,
+    required this.expirationMonths,
+    required this.calories,
+    required this.unit,
+    required this.isOrganic,
+    this.avgRating = 0,
+    this.ratingCount = 0,
+    required this.reviews,
+  });
+
+  factory ProductModel.fromEntity(ProductEntity entity) {
+    return ProductModel(
+      productName: entity.productName,
+      price: entity.price,
+      code: entity.code,
+      description: entity.description,
+      image: entity.image,
+      isFeatured: entity.isFeatured,
+      imageUrl: entity.imageUrl,
+      expirationMonths: entity.expirationMonths,
+      calories: entity.calories,
+      unit: entity.unit,
+      isOrganic: entity.isOrganic,
+      avgRating: entity.avgRating,
+      ratingCount: entity.ratingCount,
+      reviews: entity.reviews
+          .map((review) => ReviewModel.fromEntity(review))
+          .toList(),
+    );
+  }
+
+  dynamic toJson() => {
+    'productName': productName,
+    'price': price,
+    'code': code,
+    'description': description,
+    'isFeatured': isFeatured,
+    'imageUrl': imageUrl,
+    'expirationMonths': expirationMonths,
+    'calories': calories,
+    'unit': unit,
+    'isOrganic': isOrganic,
+    'avgRating': avgRating,
+    'ratingCount': ratingCount,
+    'reviews': reviews.map((review) => review.toJson()).toList(),
+  };
+}
