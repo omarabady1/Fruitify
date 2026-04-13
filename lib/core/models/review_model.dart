@@ -35,6 +35,16 @@ class ReviewModel {
     );
   }
 
+  ReviewEntity toEntity() {
+    return ReviewEntity(
+      name: name,
+      image: image,
+      rating: rating,
+      reviewDescription: reviewDescription,
+      createdAt: createdAt,
+    );
+  }
+
   Map<String, dynamic> toJson() => {
     'name': name,
     'image': image,

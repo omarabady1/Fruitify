@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:fruitify/core/entities/product_entity.dart';
 import 'package:fruitify/core/models/review_model.dart';
 
 class ProductModel {
@@ -35,7 +36,7 @@ class ProductModel {
     required this.sellingCount,
     required this.reviews,
   });
- 
+
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
       productName: json['productName'],
@@ -55,6 +56,25 @@ class ProductModel {
       reviews: json['reviews']
           .map((review) => ReviewModel.fromJson(review))
           .toList(),
+    );
+  }
+
+  ProductEntity toEntity() {
+    return ProductEntity(
+      productName: productName,
+      price: price,
+      code: code,
+      description: description,
+      image: image,
+      isFeatured: isFeatured,
+      imageUrl: imageUrl,
+      expirationMonths: expirationMonths,
+      calories: calories,
+      unit: unit,
+      isOrganic: isOrganic,
+      avgRating: avgRating,
+      ratingCount: ratingCount,
+      reviews: reviews.map((review) => review.toEntity()).toList(),
     );
   }
 
