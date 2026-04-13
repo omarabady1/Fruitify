@@ -1,6 +1,4 @@
 import 'dart:io';
-
-import 'package:fruitify/core/entities/product_entity.dart';
 import 'package:fruitify/core/models/review_model.dart';
 
 class ProductModel {
@@ -17,6 +15,7 @@ class ProductModel {
   final int unit;
   num avgRating;
   num ratingCount;
+  int sellingCount;
   final List<ReviewModel> reviews;
 
   ProductModel({
@@ -33,26 +32,28 @@ class ProductModel {
     required this.isOrganic,
     this.avgRating = 0,
     this.ratingCount = 0,
+    required this.sellingCount,
     required this.reviews,
   });
-
-  factory ProductModel.fromEntity(ProductEntity entity) {
+ 
+  factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
-      productName: entity.productName,
-      price: entity.price,
-      code: entity.code,
-      description: entity.description,
-      image: entity.image,
-      isFeatured: entity.isFeatured,
-      imageUrl: entity.imageUrl,
-      expirationMonths: entity.expirationMonths,
-      calories: entity.calories,
-      unit: entity.unit,
-      isOrganic: entity.isOrganic,
-      avgRating: entity.avgRating,
-      ratingCount: entity.ratingCount,
-      reviews: entity.reviews
-          .map((review) => ReviewModel.fromEntity(review))
+      productName: json['productName'],
+      price: json['price'],
+      code: json['code'],
+      description: json['description'],
+      image: json['image'],
+      isFeatured: json['isFeatured'],
+      imageUrl: json['imageUrl'],
+      expirationMonths: json['expirationMonths'],
+      calories: json['calories'],
+      unit: json['unit'],
+      isOrganic: json['isOrganic'],
+      avgRating: json['avgRating'],
+      ratingCount: json['ratingCount'],
+      sellingCount: json['sellingCount'],
+      reviews: json['reviews']
+          .map((review) => ReviewModel.fromJson(review))
           .toList(),
     );
   }
@@ -70,6 +71,7 @@ class ProductModel {
     'isOrganic': isOrganic,
     'avgRating': avgRating,
     'ratingCount': ratingCount,
+    'sellingCount': sellingCount,
     'reviews': reviews.map((review) => review.toJson()).toList(),
   };
 }
