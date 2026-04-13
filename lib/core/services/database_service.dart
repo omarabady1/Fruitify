@@ -11,8 +11,5 @@ abstract class DatabaseService {
     String value,
   );
 
-  Future<Map<String, dynamic>> getData({
-    required String path,
-    required String docId,
-  });
+  Future<dynamic> getData({required String path, String? docId});
 }
