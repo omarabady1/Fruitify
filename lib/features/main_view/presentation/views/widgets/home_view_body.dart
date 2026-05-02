@@ -5,7 +5,7 @@ import 'package:fruitify/features/main_view/presentation/views/widgets/best_sell
 import 'package:fruitify/features/main_view/presentation/views/widgets/custom_home_app_bar.dart';
 import 'package:fruitify/features/main_view/presentation/views/widgets/custom_search_text_field.dart';
 import 'package:fruitify/features/main_view/presentation/views/widgets/featured_item_page_view.dart';
-import 'package:fruitify/features/main_view/presentation/views/widgets/fruit_item.dart';
+import 'package:fruitify/features/main_view/presentation/views/widgets/products_grid_view.dart';
 
 class HomeViewBody extends StatefulWidget {
   const HomeViewBody({
@@ -43,16 +43,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
           SliverToBoxAdapter(child: SizedBox(height: 12)),
           SliverToBoxAdapter(child: BestSellingHeader()),
           SliverToBoxAdapter(child: SizedBox(height: 8)),
-          SliverGrid.builder(
-            itemCount: 10,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              childAspectRatio: 163 / 214,
-              crossAxisCount: 2,
-            ),
-            itemBuilder: (context, index) {
-              return FruitItem();
-            },
-          ),
+          const ProductsGridView(),
         ],
       ),
     );

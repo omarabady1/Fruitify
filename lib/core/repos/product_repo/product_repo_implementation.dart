@@ -28,7 +28,7 @@ class ProductRepoImplementation implements ProductRepo {
           .toList();
       return right(products);
     } catch (e) {
-      return left(ServerFailure('Failed to load products'));
+      return left(ServerFailure('Failed to load products: $e'));
     }
   }
 
@@ -43,7 +43,7 @@ class ProductRepoImplementation implements ProductRepo {
           .toList();
       return right(products);
     } catch (e) {
-      return left(ServerFailure('Failed to load products'));
+      return left(ServerFailure('Failed to load products: $e'));
     }
   }
 }

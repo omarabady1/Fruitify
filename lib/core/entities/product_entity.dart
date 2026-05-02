@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:fruitify/core/entities/review_entity.dart';
 
 class ProductEntity {
@@ -6,7 +5,6 @@ class ProductEntity {
   final String price;
   final String code;
   final String description;
-  final File image;
   final bool isFeatured;
   String? imageUrl;
   final int expirationMonths;
@@ -22,7 +20,6 @@ class ProductEntity {
     required this.price,
     required this.code,
     required this.description,
-    required this.image,
     required this.isFeatured,
     this.imageUrl,
     required this.expirationMonths,

@@ -1,5 +1,5 @@
-import 'dart:io';
 import 'package:fruitify/core/entities/product_entity.dart';
+import 'package:fruitify/core/helper_functions/get_avg_rating.dart';
 import 'package:fruitify/core/models/review_model.dart';
 
 class ProductModel {
@@ -7,7 +7,6 @@ class ProductModel {
   final String price;
   final String code;
   final String description;
-  final File image;
   final bool isFeatured;
   String? imageUrl;
   final int expirationMonths;
@@ -24,38 +23,41 @@ class ProductModel {
     required this.price,
     required this.code,
     required this.description,
-    required this.image,
     required this.isFeatured,
     this.imageUrl,
     required this.expirationMonths,
     required this.calories,
     required this.unit,
     required this.isOrganic,
-    this.avgRating = 0,
+    required this.avgRating,
     this.ratingCount = 0,
     required this.sellingCount,
     required this.reviews,
   });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
+    List<ReviewModel> reviews = [];
+    if (json['reviews'] != null && json['reviews'] is List) {
+      reviews = (json['reviews'] as List)
+          .map((review) => ReviewModel.fromJson(review))
+          .toList()
+          .cast<ReviewModel>();
+    }
     return ProductModel(
       productName: json['productName'],
       price: json['price'],
       code: json['code'],
       description: json['description'],
-      image: json['image'],
       isFeatured: json['isFeatured'],
       imageUrl: json['imageUrl'],
       expirationMonths: json['expirationMonths'],
       calories: json['calories'],
       unit: json['unit'],
       isOrganic: json['isOrganic'],
-      avgRating: json['avgRating'],
+      avgRating: getAvgRating(reviews),
       ratingCount: json['ratingCount'],
       sellingCount: json['sellingCount'],
-      reviews: json['reviews']
-          .map((review) => ReviewModel.fromJson(review))
-          .toList(),
+      reviews: reviews,
     );
   }
 
@@ -65,7 +67,6 @@ class ProductModel {
       price: price,
       code: code,
       description: description,
-      image: image,
       isFeatured: isFeatured,
       imageUrl: imageUrl,
       expirationMonths: expirationMonths,
