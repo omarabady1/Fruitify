@@ -7,20 +7,18 @@ import '../../features/authentication/domain/repos/auth_repo.dart';
 import '../services/database_service.dart';
 import '../services/firestore_service.dart';
 
-final locator = GetIt.instance;
+final getIt = GetIt.instance;
 
 void setupServiceLocator() {
-  locator.registerSingleton<FirebaseAuthService>(FirebaseAuthService());
-  locator.registerSingleton<DatabaseService>(FirestoreService());
-  locator.registerSingleton<AuthRepo>(
+  getIt.registerSingleton<FirebaseAuthService>(FirebaseAuthService());
+  getIt.registerSingleton<DatabaseService>(FirestoreService());
+  getIt.registerSingleton<AuthRepo>(
     AuthRepoImplementation(
-      firebaseAuthService: locator<FirebaseAuthService>(),
-      databaseService: locator<DatabaseService>(),
+      firebaseAuthService: getIt<FirebaseAuthService>(),
+      databaseService: getIt<DatabaseService>(),
     ),
   );
-  locator.registerSingleton<ProductRepo>(
-    ProductRepoImplementation(
-      databaseService: locator<DatabaseService>(),
-    ),
+  getIt.registerSingleton<ProductRepo>(
+    ProductRepoImplementation(databaseService: getIt<DatabaseService>()),
   );
 }
