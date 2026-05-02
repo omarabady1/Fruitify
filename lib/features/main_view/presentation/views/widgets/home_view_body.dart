@@ -1,15 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruitify/core/cubits/cubit/products%20cubit/products_cubit.dart';
 import 'package:fruitify/features/main_view/presentation/views/widgets/best_selling_header.dart';
 import 'package:fruitify/features/main_view/presentation/views/widgets/custom_home_app_bar.dart';
 import 'package:fruitify/features/main_view/presentation/views/widgets/custom_search_text_field.dart';
 import 'package:fruitify/features/main_view/presentation/views/widgets/featured_item_page_view.dart';
 import 'package:fruitify/features/main_view/presentation/views/widgets/fruit_item.dart';
 
-class HomeViewBody extends StatelessWidget {
+class HomeViewBody extends StatefulWidget {
   const HomeViewBody({
     super.key,
   });
 
+  @override
+  State<HomeViewBody> createState() => _HomeViewBodyState();
+}
+
+class _HomeViewBodyState extends State<HomeViewBody> {
+  @override
+  void initState() {
+    context.read<ProductsCubit>().getBestSellingProducts();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Padding(

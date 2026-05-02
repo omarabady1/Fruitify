@@ -7,7 +7,7 @@ class MainView extends StatelessWidget {
   static const String routeName = 'main_view';
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(child: HomeView()),
       bottomNavigationBar: CustomBottomNavigationBar(),
     );

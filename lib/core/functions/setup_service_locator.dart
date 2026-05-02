@@ -1,3 +1,5 @@
+import 'package:fruitify/core/repos/product_repo/product_repo.dart';
+import 'package:fruitify/core/repos/product_repo/product_repo_implementation.dart';
 import 'package:fruitify/core/services/firebase_auth_service.dart';
 import 'package:fruitify/features/authentication/data/repos/auth_repo_implementation.dart';
 import 'package:get_it/get_it.dart';
@@ -13,6 +15,11 @@ void setupServiceLocator() {
   locator.registerSingleton<AuthRepo>(
     AuthRepoImplementation(
       firebaseAuthService: locator<FirebaseAuthService>(),
+      databaseService: locator<DatabaseService>(),
+    ),
+  );
+  locator.registerSingleton<ProductRepo>(
+    ProductRepoImplementation(
       databaseService: locator<DatabaseService>(),
     ),
   );
