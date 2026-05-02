@@ -5,7 +5,7 @@ import 'package:fruitify/features/authentication/presentation/views/widgets/sign
 import '../../../../../core/widgets/custom_progress_hud.dart';
 import '../../../../../core/widgets/show_custom_snack_bar.dart';
 import '../../../../../core/widgets/show_error_snack_bar.dart';
-import '../../../../home/presentation/views/home_view.dart';
+import '../../../../main_view/presentation/views/main_view.dart';
 
 class SignInViewBodyBlocConsumer extends StatelessWidget {
   const SignInViewBodyBlocConsumer({super.key});
@@ -18,7 +18,7 @@ class SignInViewBodyBlocConsumer extends StatelessWidget {
           showCustomSnackBar(context, 'تم تسجيل الدخول بنجاح');
           Navigator.pushNamedAndRemoveUntil(
             context,
-            HomeView.routeName,
+            MainView.routeName,
             (route) => false,
           );
         } else if (state is SignInFailure) {

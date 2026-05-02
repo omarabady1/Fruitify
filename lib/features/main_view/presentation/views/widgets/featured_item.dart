@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart' as svg;
 import 'package:fruitify/core/utils/app_text_styles.dart';
-import 'package:fruitify/features/home/presentation/views/widgets/featured_item_button.dart';
+import 'package:fruitify/features/main_view/presentation/views/widgets/featured_item_button.dart';
 import '../../../../../generated/assets.dart';
 
 class FeaturedItem extends StatelessWidget {
