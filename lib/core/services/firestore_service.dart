@@ -42,7 +42,7 @@ class FirestoreService implements DatabaseService {
       var data = await firestore.collection(path).doc(docId).get();
       return data.data();
     } else {
-      Query<Map<String, dynamic>> data = await firestore.collection(path);
+      Query<Map<String, dynamic>> data = firestore.collection(path);
       if (query != null) {
         if (query['orderBy'] != null) {
           var orderByField = query['orderBy'];
