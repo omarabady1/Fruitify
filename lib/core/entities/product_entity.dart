@@ -30,6 +30,6 @@ class ProductEntity {
     this.avgRating = 0,
     this.ratingCount = 0,
     required this.reviews,
-    required this.amount,
+    this.amount = 1,
   });
 }

@@ -13,7 +13,7 @@ class ProductModel {
   final bool isOrganic;
   final int calories;
   final int unit;
-  final num amount;
+  num amount;
   num avgRating;
   num ratingCount;
   int sellingCount;
@@ -29,7 +29,7 @@ class ProductModel {
     required this.expirationMonths,
     required this.calories,
     required this.unit,
-    required this.amount,
+    this.amount = 1,
     required this.isOrganic,
     required this.avgRating,
     this.ratingCount = 0,
