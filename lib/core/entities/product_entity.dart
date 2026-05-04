@@ -2,7 +2,7 @@ import 'package:fruitify/core/entities/review_entity.dart';
 
 class ProductEntity {
   final String productName;
-  final String price;
+  final double price;
   final String code;
   final String description;
   final bool isFeatured;

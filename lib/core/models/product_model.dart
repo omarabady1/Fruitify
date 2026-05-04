@@ -4,7 +4,7 @@ import 'package:fruitify/core/models/review_model.dart';
 
 class ProductModel {
   final String productName;
-  final String price;
+  final double price;
   final String code;
   final String description;
   final bool isFeatured;

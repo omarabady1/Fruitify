@@ -3,7 +3,7 @@ import 'package:fruitify/core/entities/product_entity.dart';
 ProductEntity getDummyProduct() {
   return ProductEntity(
     productName: 'فراولة',
-    price: '30',
+    price: 30,
     code: '0000',
     description: 'فاكهة طازجة',
     isFeatured: false,
