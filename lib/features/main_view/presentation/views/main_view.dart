@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruitify/features/main_view/presentation/views/widgets/custom_buttom_nav_bar.dart';
 import 'package:fruitify/features/main_view/presentation/views/home_view.dart';
 import 'package:fruitify/features/main_view/presentation/views/products_view.dart';
+import 'package:fruitify/features/main_view/presentation/views/cart_view.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});
@@ -23,7 +24,7 @@ class _MainViewState extends State<MainView> {
           children: const [
             HomeView(),
             ProductsView(),
-            Center(child: Text('Cart View')),
+            CartView(),
             Center(child: Text('Profile View')),
           ],
         ),

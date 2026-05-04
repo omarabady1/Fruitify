@@ -49,4 +49,5 @@ class Assets {
   static const String imagesWatermelon = 'assets/images/watermelon.svg';
   static const String imagesArrowSwapVertical =
       'assets/images/arrow_swap_vertical.svg';
+  static const String imagesTrash = 'assets/images/trash.svg';
 }
