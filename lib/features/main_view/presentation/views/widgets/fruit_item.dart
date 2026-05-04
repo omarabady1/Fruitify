@@ -18,14 +18,6 @@ class FruitItem extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          Positioned(
-            top: 0,
-            right: 0,
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.favorite_border),
-            ),
-          ),
           Positioned.fill(
             child: Column(
               children: [
@@ -46,7 +38,7 @@ class FruitItem extends StatelessWidget {
                     TextSpan(
                       children: [
                         TextSpan(
-                          text: ' ${productEntity.price}جنية ',
+                          text: ' ${productEntity.price}جنيه ',
                           style: AppTextStyles.bold13.copyWith(
                             color: const Color(0xFFF4A91F),
                           ),
@@ -78,6 +70,14 @@ class FruitItem extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+          ),
+          Positioned(
+            top: 0,
+            right: 0,
+            child: IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.favorite_border),
             ),
           ),
         ],
