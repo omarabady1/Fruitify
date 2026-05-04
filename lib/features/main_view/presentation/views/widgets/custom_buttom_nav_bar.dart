@@ -3,16 +3,16 @@ import 'package:fruitify/constants.dart';
 import 'package:fruitify/core/utils/app_text_styles.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
-class CustomBottomNavigationBar extends StatefulWidget {
-  const CustomBottomNavigationBar({super.key});
+class CustomBottomNavigationBar extends StatelessWidget {
+  const CustomBottomNavigationBar({
+    super.key,
+    required this.currentIndex,
+    required this.onTabChanged,
+  });
 
-  @override
-  State<CustomBottomNavigationBar> createState() =>
-      _CustomBottomNavigationBarState();
-}
+  final int currentIndex;
+  final ValueChanged<int> onTabChanged;
 
-class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
-  int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -38,11 +38,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         padding: const EdgeInsets.all(16),
         color: Colors.grey,
         tabBackgroundColor: Colors.green.shade100,
-        onTabChange: (value) {
-          setState(() {
-            currentIndex = value;
-          });
-        },
+        selectedIndex: currentIndex,
+        onTabChange: onTabChanged,
         gap: 8,
         tabs: [
           GButton(

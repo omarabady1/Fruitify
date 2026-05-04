@@ -47,4 +47,6 @@ class Assets {
       'assets/images/user_active_icon.svg';
   static const String imagesUserIcon = 'assets/images/user_icon.svg';
   static const String imagesWatermelon = 'assets/images/watermelon.svg';
+  static const String imagesArrowSwapVertical =
+      'assets/images/arrow_swap_vertical.svg';
 }
