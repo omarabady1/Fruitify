@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruitify/core/cubits/cubit/products%20cubit/products_cubit.dart';
-import 'package:fruitify/features/main_view/presentation/views/widgets/best_selling_header.dart';
-import 'package:fruitify/features/main_view/presentation/views/widgets/custom_home_app_bar.dart';
-import 'package:fruitify/features/main_view/presentation/views/widgets/custom_search_text_field.dart';
-import 'package:fruitify/features/main_view/presentation/views/widgets/featured_item_page_view.dart';
-import 'package:fruitify/features/main_view/presentation/views/widgets/products_grid_view_bloc_builder.dart';
+import 'package:fruitify/features/home/presentation/views/widgets/best_selling_header.dart';
+import 'package:fruitify/features/home/presentation/views/widgets/custom_home_app_bar.dart';
+import 'package:fruitify/features/home/presentation/views/widgets/custom_search_text_field.dart';
+import 'package:fruitify/features/home/presentation/views/widgets/featured_item_page_view.dart';
+import 'package:fruitify/features/home/presentation/views/widgets/products_grid_view_bloc_builder.dart';
 
 class HomeViewBody extends StatefulWidget {
   const HomeViewBody({

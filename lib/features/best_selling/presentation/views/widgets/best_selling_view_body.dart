@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruitify/core/helper_functions/get_dummy_product.dart';
-import '../../../../main_view/presentation/views/widgets/fruit_item.dart';
+import '../../../../home/presentation/views/widgets/fruit_item.dart';
 
 class BestSellingViewBody extends StatelessWidget {
   const BestSellingViewBody({super.key});

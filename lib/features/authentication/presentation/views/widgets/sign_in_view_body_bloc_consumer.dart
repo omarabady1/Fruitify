@@ -5,7 +5,7 @@ import 'package:fruitify/features/authentication/presentation/views/widgets/sign
 import '../../../../../core/widgets/custom_progress_hud.dart';
 import '../../../../../core/widgets/show_custom_snack_bar.dart';
 import '../../../../../core/widgets/show_error_snack_bar.dart';
-import '../../../../main_view/presentation/views/main_view.dart';
+import '../../../../home/presentation/views/main_view.dart';
 
 class SignInViewBodyBlocConsumer extends StatelessWidget {
   const SignInViewBodyBlocConsumer({super.key});

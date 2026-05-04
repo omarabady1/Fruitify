@@ -4,7 +4,7 @@ import 'package:fruitify/features/splash/presentation/views/splash_view.dart';
 
 import '../../features/authentication/presentation/views/sign_in_view.dart';
 import '../../features/authentication/presentation/views/sign_up_view.dart';
-import '../../features/main_view/presentation/views/main_view.dart';
+import '../../features/home/presentation/views/main_view.dart';
 import '../../features/best_selling/presentation/views/best_selling_view.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {

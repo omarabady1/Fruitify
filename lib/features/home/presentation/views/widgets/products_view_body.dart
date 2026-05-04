@@ -3,11 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruitify/core/cubits/cubit/products%20cubit/products_cubit.dart';
 import 'package:fruitify/core/widgets/custom_app_bar.dart';
 import 'package:fruitify/core/widgets/notification_widget.dart';
-import 'package:fruitify/features/main_view/presentation/views/widgets/best_selling_header.dart';
-import 'package:fruitify/features/main_view/presentation/views/widgets/custom_search_text_field.dart';
-import 'package:fruitify/features/main_view/presentation/views/widgets/products_categories.dart';
-import 'package:fruitify/features/main_view/presentation/views/widgets/products_grid_view_bloc_builder.dart';
-import 'package:fruitify/features/main_view/presentation/views/widgets/products_view_header.dart';
+import 'package:fruitify/features/home/presentation/views/widgets/best_selling_header.dart';
+import 'package:fruitify/features/home/presentation/views/widgets/custom_search_text_field.dart';
+import 'package:fruitify/features/home/presentation/views/widgets/products_categories.dart';
+import 'package:fruitify/features/home/presentation/views/widgets/products_grid_view_bloc_builder.dart';
+import 'package:fruitify/features/home/presentation/views/widgets/products_view_header.dart';
 
 class ProductsViewBody extends StatefulWidget {
   const ProductsViewBody({super.key});

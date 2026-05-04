@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruitify/core/widgets/custom_app_bar.dart';
 import 'package:fruitify/core/widgets/custom_button.dart';
 import 'package:fruitify/core/utils/app_text_styles.dart';
-import 'package:fruitify/features/main_view/presentation/views/widgets/cart_item_widget.dart';
+import 'package:fruitify/features/home/presentation/views/widgets/cart_item_widget.dart';
 
 class CartViewBody extends StatelessWidget {
   const CartViewBody({super.key});

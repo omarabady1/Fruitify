@@ -4,7 +4,7 @@ import 'package:fruitify/constants.dart';
 import 'package:fruitify/core/services/firebase_auth_service.dart';
 import 'package:fruitify/core/services/shared_preferences_singleton.dart';
 import 'package:fruitify/features/authentication/presentation/views/sign_in_view.dart';
-import 'package:fruitify/features/main_view/presentation/views/main_view.dart';
+import 'package:fruitify/features/home/presentation/views/main_view.dart';
 import 'package:fruitify/features/on_boarding/presentation/views/on_boarding_view.dart';
 
 import '../../../../../generated/assets.dart';
