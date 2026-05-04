@@ -1,26 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruitify/core/utils/app_text_styles.dart';
+import 'package:fruitify/features/home/domain/entities/cart_item_entity.dart';
 import 'package:fruitify/generated/assets.dart';
 
 class CartItemWidget extends StatelessWidget {
-  const CartItemWidget({super.key});
+  const CartItemWidget({super.key, required this.cartItem});
+  final CartItemEntity cartItem;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
+        SizedBox(
           width: 73,
           height: 92,
-          decoration: const BoxDecoration(color: Color(0xFFF3F5F7)),
-          child: Center(
-            child: SvgPicture.asset(
-              Assets.imagesWatermelon,
-              height: 40,
-              width: 53,
-            ),
+          child: Image.network(
+            cartItem.product.imageUrl!,
+            fit: BoxFit.cover,
           ),
         ),
         const SizedBox(width: 17),
@@ -32,7 +30,7 @@ class CartItemWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'بطيخ',
+                    cartItem.product.productName,
                     style: AppTextStyles.bold13.copyWith(
                       color: const Color(0xFF06161C),
                     ),
@@ -54,7 +52,7 @@ class CartItemWidget extends StatelessWidget {
               ),
               const SizedBox(height: 2),
               Text(
-                '3 كم',
+                '${cartItem.quantity} كجم',
                 style: AppTextStyles.regular13.copyWith(
                   color: const Color(0xFFF4A91F),
                 ),
@@ -72,7 +70,7 @@ class CartItemWidget extends StatelessWidget {
                       ),
                       const SizedBox(width: 16),
                       Text(
-                        '3',
+                        '${cartItem.count}',
                         style: AppTextStyles.bold16.copyWith(
                           color: const Color(0xFF06140C),
                         ),
@@ -86,7 +84,7 @@ class CartItemWidget extends StatelessWidget {
                     ],
                   ),
                   Text(
-                    '60 جنيه',
+                    '${cartItem.subTotal} جنيه',
                     style: AppTextStyles.bold16.copyWith(
                       color: const Color(0xFFF4A91F),
                     ),
@@ -100,7 +98,8 @@ class CartItemWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildQuantityButton(IconData icon, Color bgColor, Color iconColor) {
+  Widget _buildQuantityButton(IconData icon, Color bgColor, Color iconColor,
+  ) {
     return Container(
       width: 24,
       height: 24,

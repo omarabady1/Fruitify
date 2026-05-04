@@ -4,6 +4,7 @@ ProductEntity getDummyProduct() {
   return ProductEntity(
     productName: 'فراولة',
     price: 30,
+    amount: 2,
     code: '0000',
     description: 'فاكهة طازجة',
     isFeatured: false,
@@ -12,6 +13,7 @@ ProductEntity getDummyProduct() {
     unit: 1,
     isOrganic: false,
     reviews: [],
+    imageUrl: 'https://lfqwkciqqbwsrwblhrfr.supabase.co/storage/v1/object/public/images/images33.jpg'
   );
 }
 

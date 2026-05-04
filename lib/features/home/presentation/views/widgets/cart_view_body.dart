@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:fruitify/core/helper_functions/get_dummy_product.dart';
 import 'package:fruitify/core/widgets/custom_app_bar.dart';
 import 'package:fruitify/core/widgets/custom_button.dart';
 import 'package:fruitify/core/utils/app_text_styles.dart';
-import 'package:fruitify/features/home/presentation/views/widgets/cart_item_widget.dart';
+import 'package:fruitify/features/home/domain/entities/cart_item_entity.dart';
+import 'package:fruitify/features/home/presentation/views/widgets/cart_item_list.dart';
 
 class CartViewBody extends StatelessWidget {
   const CartViewBody({super.key});
@@ -40,20 +42,11 @@ class CartViewBody extends StatelessWidget {
                 ],
               ),
             ),
-            SliverList.separated(
-              itemCount: 3,
-              separatorBuilder: (context, index) => const Divider(
-                height: 32,
-                color: Color(0xFFF1F1F5),
-                thickness: 1,
-              ),
-              itemBuilder: (context, index) {
-                return const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16),
-                  child: CartItemWidget(),
-                );
-              },
-            ),
+            CartItemList(cartItems: [
+              CartItemEntity(product: getDummyProduct(), count: 2),
+              CartItemEntity(product: getDummyProduct(), count: 4),
+              CartItemEntity(product: getDummyProduct(), count: 1),
+            ]),
             const SliverToBoxAdapter(
               child: SizedBox(height: 100), // Space for bottom button
             ),

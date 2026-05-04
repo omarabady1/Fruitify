@@ -13,6 +13,7 @@ class ProductEntity {
   final int unit;
   num avgRating;
   num ratingCount;
+  num amount;
   final List<ReviewEntity> reviews;
 
   ProductEntity({
@@ -29,5 +30,6 @@ class ProductEntity {
     this.avgRating = 0,
     this.ratingCount = 0,
     required this.reviews,
+    required this.amount,
   });
 }
