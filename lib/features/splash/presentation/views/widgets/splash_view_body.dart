@@ -109,17 +109,23 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void executeNavigation() {
     Future.delayed(const Duration(milliseconds: 2300), () async {
       if (mounted) {
-        if (Prefs.getBool(isOnBoardingSeen)) {
-          bool isValidUser = await FirebaseAuthService().verifyAndCheckUser();
-          if (mounted) {
-            if (isValidUser) {
-              Navigator.pushReplacementNamed(context, MainView.routeName);
-            } else {
-              Navigator.pushReplacementNamed(context, SignInView.routeName);
+        try {
+          if (Prefs.getBool(isOnBoardingSeen)) {
+            bool isValidUser = await FirebaseAuthService().verifyAndCheckUser();
+            if (mounted) {
+              if (isValidUser) {
+                Navigator.pushReplacementNamed(context, MainView.routeName);
+              } else {
+                Navigator.pushReplacementNamed(context, SignInView.routeName);
+              }
             }
+          } else {
+            Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
           }
-        } else {
-          Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
+        } catch (e) {
+          if (mounted) {
+            Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
+          }
         }
       }
     });

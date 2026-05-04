@@ -16,7 +16,11 @@ void main() async {
   Bloc.observer = SimpleBlocObserver();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   setupServiceLocator();
-  await Prefs.init();
+  try {
+    await Prefs.init();
+  } catch (e) {
+    debugPrint('Failed to initialize SharedPreferences: $e');
+  }
   runApp(const Fruitify());
 }
 
