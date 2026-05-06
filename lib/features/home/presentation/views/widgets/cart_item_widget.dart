@@ -35,7 +35,9 @@ class CartItemWidget extends StatelessWidget {
                     ),
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.read<CartCubit>().removeFromCart(cartItem);
+                    },
                     padding: EdgeInsets.zero,
                     icon: SvgPicture.asset(
                       Assets.imagesTrash,
