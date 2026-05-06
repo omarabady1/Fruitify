@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruitify/features/home/presentation/cubits/cart_cubit/cart_cubit.dart';
 import '../../../../../core/entities/product_entity.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 
@@ -38,8 +40,8 @@ class FruitItem extends StatelessWidget {
                     TextSpan(
                       children: [
                         TextSpan(
-                          text: ' ${productEntity.price}جنيه ',
-                          style: AppTextStyles.bold13.copyWith(
+                          text: ' ${productEntity.price} جنيه ',
+                          style: AppTextStyles.semiBold13.copyWith(
                             color: const Color(0xFFF4A91F),
                           ),
                         ),
@@ -59,9 +61,11 @@ class FruitItem extends StatelessWidget {
                       customBorder: const CircleBorder(),
                       splashColor: Colors.white.withValues(
                         alpha: 0.3,
-                      ), // splash color
+                      ),
                       highlightColor: Colors.white.withValues(alpha: 0.1),
-                      onTap: () {},
+                      onTap: () {
+                        context.read<CartCubit>().addToCart(productEntity);
+                      },
                       child: const Padding(
                         padding: EdgeInsets.all(8),
                         child: Icon(Icons.add, color: Colors.white),

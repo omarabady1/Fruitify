@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:fruitify/core/helper_functions/get_dummy_product.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruitify/core/widgets/custom_app_bar.dart';
 import 'package:fruitify/core/widgets/custom_button.dart';
 import 'package:fruitify/core/utils/app_text_styles.dart';
 import 'package:fruitify/features/home/domain/entities/cart_item_entity.dart';
+import 'package:fruitify/features/home/presentation/cubits/cart_cubit/cart_cubit.dart';
 import 'package:fruitify/features/home/presentation/views/widgets/cart_item_list.dart';
 
 class CartViewBody extends StatelessWidget {
@@ -11,6 +12,7 @@ class CartViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<CartItemEntity> cartItems = context.watch<CartCubit>().cartEntity.cartItems;
     return Stack(
       children: [
         CustomScrollView(
@@ -31,7 +33,7 @@ class CartViewBody extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 10),
                     child: Center(
                       child: Text(
-                        'لديك 3 منتجات في سله التسوق',
+                        'لديك ${cartItems.length} منتجات في سله التسوق',
                         style: AppTextStyles.regular13.copyWith(
                           color: const Color(0xFF1B5E37),
                         ),
@@ -42,11 +44,13 @@ class CartViewBody extends StatelessWidget {
                 ],
               ),
             ),
-            CartItemList(cartItems: [
-              CartItemEntity(product: getDummyProduct(), count: 2),
-              CartItemEntity(product: getDummyProduct(), count: 4),
-              CartItemEntity(product: getDummyProduct(), count: 1),
-            ]),
+            cartItems.isEmpty
+                ? const SliverToBoxAdapter(
+                    child: Center(
+                      child: Text('سلة التسوق فارغة'),
+                    ),
+                  )
+                : CartItemList(cartItems: cartItems),
             const SliverToBoxAdapter(
               child: SizedBox(height: 100), // Space for bottom button
             ),
@@ -57,7 +61,7 @@ class CartViewBody extends StatelessWidget {
           left: 16,
           right: 16,
           child: CustomButton(
-            label: 'الدفع 120جنيه',
+            label: 'الدفع ${context.read<CartCubit>().cartEntity.totalPrice} جنيه',
             onPressed: () {},
           ),
         ),

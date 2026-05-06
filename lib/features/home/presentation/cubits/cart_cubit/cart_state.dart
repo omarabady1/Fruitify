@@ -5,9 +5,9 @@ sealed class CartState {}
 
 final class CartInitial extends CartState {}
 
-final class CartAddedSuccessfully extends CartState {}
+final class CartProductAdded extends CartState {}
 
-final class CartRemovedSuccessfully extends CartState {}
+final class CartProductRemoved extends CartState {}
 
 final class CartFailed extends CartState {
   final String errorMessage;
