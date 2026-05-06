@@ -14,9 +14,19 @@ class CartCubit extends Cubit<CartState> {
       CartItemEntity cartItemEntity = cartEntity.findCartItem(productEntity);
       cartItemEntity.increaseCount();
     } else {
-      cartEntity.addItem(CartItemEntity(product: productEntity));
+      cartEntity.addItem(CartItemEntity(product: productEntity, count: 1));
     }
     emit(CartProductAdded());
+  }
+
+  void increaseCartItemCount(CartItemEntity cartItem) {
+    cartItem.increaseCount();
+    emit(CartProductCountUpdated());
+  }
+
+  void decreaseCartItemCount(CartItemEntity cartItem) {
+    cartItem.decreaseCount();
+    emit(CartProductCountUpdated());
   }
 
   void removeFromCart(CartItemEntity cartItem) {

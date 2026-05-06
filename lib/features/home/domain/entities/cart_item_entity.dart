@@ -4,7 +4,7 @@ class CartItemEntity {
   final ProductEntity product;
   int count;
 
-  CartItemEntity({required this.product, this.count = 1});
+  CartItemEntity({required this.product, required this.count});
 
   double get subTotal => product.price * count;
 
@@ -19,5 +19,4 @@ class CartItemEntity {
   }
 
   num get quantity => product.amount * count;
-
 }

@@ -12,7 +12,11 @@ class CartViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<CartItemEntity> cartItems = context.watch<CartCubit>().cartEntity.cartItems;
+    List<CartItemEntity> cartItems = context
+        .watch<CartCubit>()
+        .cartEntity
+        .cartItems;
+    num totalPrice = context.watch<CartCubit>().cartEntity.totalPrice;
     return Stack(
       children: [
         CustomScrollView(
@@ -21,11 +25,7 @@ class CartViewBody extends StatelessWidget {
               child: Column(
                 children: [
                   const SizedBox(height: 16),
-                  buildAppBar(
-                    context,
-                    title: 'السلة',
-                    showLeading: true,
-                  ),
+                  buildAppBar(context, title: 'السلة', showLeading: true),
                   const SizedBox(height: 16),
                   Container(
                     width: double.infinity,
@@ -45,9 +45,12 @@ class CartViewBody extends StatelessWidget {
               ),
             ),
             cartItems.isEmpty
-                ? const SliverToBoxAdapter(
+                ? SliverFillRemaining(
                     child: Center(
-                      child: Text('سلة التسوق فارغة'),
+                      child: Text(
+                        'سلة التسوق فارغة',
+                        style: AppTextStyles.semiBold16,
+                      ),
                     ),
                   )
                 : CartItemList(cartItems: cartItems),
@@ -60,10 +63,9 @@ class CartViewBody extends StatelessWidget {
           bottom: 16,
           left: 16,
           right: 16,
-          child: CustomButton(
-            label: 'الدفع ${context.read<CartCubit>().cartEntity.totalPrice} جنيه',
-            onPressed: () {},
-          ),
+          child: cartItems.isEmpty
+              ? const SizedBox.shrink()
+              : CustomButton(label: 'الدفع $totalPrice جنيه', onPressed: () {}),
         ),
       ],
     );

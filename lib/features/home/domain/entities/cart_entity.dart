@@ -28,9 +28,7 @@ class CartEntity {
   CartItemEntity findCartItem(ProductEntity productEntity) {
     return cartItems.firstWhere(
       (element) => element.product == productEntity,
-      orElse: () => CartItemEntity(
-        product: productEntity,
-      ),
+      orElse: () => CartItemEntity(product: productEntity, count: 1),
     );
   }
 }

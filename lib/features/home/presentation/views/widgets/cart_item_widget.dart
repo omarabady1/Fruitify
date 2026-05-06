@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruitify/core/utils/app_text_styles.dart';
 import 'package:fruitify/features/home/domain/entities/cart_item_entity.dart';
+import 'package:fruitify/features/home/presentation/cubits/cart_cubit/cart_cubit.dart';
 import 'package:fruitify/generated/assets.dart';
 
 class CartItemWidget extends StatelessWidget {
@@ -16,10 +18,7 @@ class CartItemWidget extends StatelessWidget {
         SizedBox(
           width: 73,
           height: 92,
-          child: Image.network(
-            cartItem.product.imageUrl!,
-            fit: BoxFit.cover,
-          ),
+          child: Image.network(cartItem.product.imageUrl!, fit: BoxFit.cover),
         ),
         const SizedBox(width: 17),
         Expanded(
@@ -67,6 +66,9 @@ class CartItemWidget extends StatelessWidget {
                         Icons.remove,
                         const Color(0xFFF3F5F7),
                         const Color(0xFF979899),
+                        onPressed: () => context
+                            .read<CartCubit>()
+                            .decreaseCartItemCount(cartItem),
                       ),
                       const SizedBox(width: 16),
                       Text(
@@ -80,6 +82,9 @@ class CartItemWidget extends StatelessWidget {
                         Icons.add,
                         const Color(0xFF1B5E37),
                         Colors.white,
+                        onPressed: () => context
+                            .read<CartCubit>()
+                            .increaseCartItemCount(cartItem),
                       ),
                     ],
                   ),
@@ -98,8 +103,12 @@ class CartItemWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildQuantityButton(IconData icon, Color bgColor, Color iconColor,
-  ) {
+  Widget _buildQuantityButton(
+    IconData icon,
+    Color bgColor,
+    Color iconColor, {
+    required Function() onPressed,
+  }) {
     return Container(
       width: 24,
       height: 24,
@@ -107,7 +116,7 @@ class CartItemWidget extends StatelessWidget {
       child: Center(
         child: IconButton(
           padding: EdgeInsets.zero,
-          onPressed: () {},
+          onPressed: onPressed,
           icon: Icon(icon, color: iconColor, size: 16),
           highlightColor: Colors.black12,
         ),
