@@ -16,7 +16,7 @@ AppBar buildAppBar(
     leading: showLeading
         ? IconButton(
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.maybePop(context);
             },
             icon: const Icon(Icons.arrow_back_ios),
           )

@@ -17,17 +17,29 @@ class _MainViewState extends State<MainView> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => CartCubit(),
-      child: Scaffold(
-        body: MainViewBodyBlocConsumer(currentViewIndex: currentViewIndex),
-        bottomNavigationBar: CustomBottomNavigationBar(
-          currentIndex: currentViewIndex,
-          onTabChanged: (index) {
+    return PopScope(
+      canPop: currentViewIndex == 0,
+      onPopInvokedWithResult: (didPop, result) {
+        if (!didPop) {
+          if (currentViewIndex != 0) {
             setState(() {
-              currentViewIndex = index;
+              currentViewIndex = 0;
             });
-          },
+          }
+        }
+      },
+      child: BlocProvider(
+        create: (context) => CartCubit(),
+        child: Scaffold(
+          body: MainViewBodyBlocConsumer(currentViewIndex: currentViewIndex),
+          bottomNavigationBar: CustomBottomNavigationBar(
+            currentIndex: currentViewIndex,
+            onTabChanged: (index) {
+              setState(() {
+                currentViewIndex = index;
+              });
+            },
+          ),
         ),
       ),
     );
