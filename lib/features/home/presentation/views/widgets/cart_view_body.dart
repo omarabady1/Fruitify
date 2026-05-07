@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruitify/core/widgets/custom_app_bar.dart';
 import 'package:fruitify/core/widgets/custom_button.dart';
 import 'package:fruitify/core/utils/app_text_styles.dart';
+import 'package:fruitify/features/checkout/presentation/views/checkout_view.dart';
 import 'package:fruitify/features/home/domain/entities/cart_item_entity.dart';
 import 'package:fruitify/features/home/presentation/cubits/cart_cubit/cart_cubit.dart';
 import 'package:fruitify/features/home/presentation/views/widgets/cart_item_list.dart';
@@ -65,7 +66,9 @@ class CartViewBody extends StatelessWidget {
           right: 16,
           child: cartItems.isEmpty
               ? const SizedBox.shrink()
-              : CustomButton(label: 'الدفع $totalPrice جنيه', onPressed: () {}),
+              : CustomButton(label: 'الدفع $totalPrice جنيه', onPressed: () {
+                Navigator.pushNamed(context, CheckoutView.routeName);
+              }),
         ),
       ],
     );

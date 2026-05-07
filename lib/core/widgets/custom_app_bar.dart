@@ -6,6 +6,7 @@ AppBar buildAppBar(
   BuildContext context, {
   required String title,
   bool showLeading = true,
+  VoidCallback? onLeadingPressed,
   List<Widget>? actions,
 }) {
   return AppBar(
@@ -15,9 +16,10 @@ AppBar buildAppBar(
     centerTitle: true,
     leading: showLeading
         ? IconButton(
-            onPressed: () {
-              Navigator.maybePop(context);
-            },
+            onPressed: onLeadingPressed ??
+                () {
+                  Navigator.maybePop(context);
+                },
             icon: const Icon(Icons.arrow_back_ios),
           )
         : null,

@@ -50,4 +50,8 @@ class Assets {
   static const String imagesArrowSwapVertical =
       'assets/images/arrow_swap_vertical.svg';
   static const String imagesTrash = 'assets/images/trash.svg';
+  static const String imagesApplePay = 'assets/images/apple_pay.svg';
+  static const String imagesPaypal = 'assets/images/paypal.svg';
+  static const String imagesMastercard = 'assets/images/mastercard.svg';
+  static const String imagesVisa = 'assets/images/visa.svg';
 }

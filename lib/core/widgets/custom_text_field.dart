@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fruitify/constants.dart';
 import 'package:fruitify/core/utils/app_text_styles.dart';
 
@@ -9,11 +10,13 @@ class CustomTextField extends StatefulWidget {
     required this.onSaved,
     this.isPassword = false,
     this.inputType = TextInputType.text,
+    this.inputFormatters,
   });
   final String hint;
   final bool isPassword;
   final TextInputType inputType;
   final void Function(String?)? onSaved;
+  final List<TextInputFormatter>? inputFormatters;
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
 }
@@ -35,6 +38,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       style: AppTextStyles.semiBold16,
       keyboardType: widget.inputType,
       obscureText: widget.isPassword ? !showPassword : false,
+      inputFormatters: widget.inputFormatters,
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.symmetric(
           vertical: 20,

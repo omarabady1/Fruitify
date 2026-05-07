@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruitify/features/checkout/presentation/views/checkout_view.dart';
 import 'package:fruitify/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:fruitify/features/splash/presentation/views/splash_view.dart';
 
@@ -21,6 +22,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const MainView());
     case BestSellingView.routeName:
       return MaterialPageRoute(builder: (context) => const BestSellingView());
+    case CheckoutView.routeName:
+      return MaterialPageRoute(builder: (context) => const CheckoutView());
     default:
       return MaterialPageRoute(builder: (context) => Container());
   }
